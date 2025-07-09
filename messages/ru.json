@@ -1,0 +1,18 @@
+{
+  "Navbar": {
+    "home": "Главная",
+    "about": "О нас",
+    "services": "Услуги",
+    "information": "Информация",
+    "contact": "Контакты",
+    "contactButton": "Связаться"
+  },
+  "Footer": {
+    "home": "Главная",
+    "about": "О нас",
+    "services": "Услуги",
+    "information": "Информация",
+    "contact": "Контакты",
+    "copyright": "© {year} Markup. Все права защищены."
+  }
+}

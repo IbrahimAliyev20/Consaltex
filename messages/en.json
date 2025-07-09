@@ -1,0 +1,18 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "information": "Information",
+    "contact": "Contact",
+    "contactButton": "Contact Us"
+  },
+  "Footer": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "information": "Information",
+    "contact": "Contact",
+    "copyright": "© {year} Markup. All rights reserved."
+  }
+}
