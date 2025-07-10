@@ -35,7 +35,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/", translationKey: "home" },
     { href: "/about", translationKey: "about" },
-    { href: "/service", translationKey: "services" },
+    { href: "/services", translationKey: "services" },
     { href: "/information", translationKey: "information" },
     { href: "/contact", translationKey: "contact" },
   ];

@@ -8,10 +8,11 @@ export default function AboutUsSec() {
       <div className="grid lg:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h2 className="relative text-3xl md:text-4xl font-bold text-gray-900 mb-2 w-fit pb-4">
               About us
+                <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-500 to-white"></span>
             </h2>
-            <div className="w-38 h-1 bg-blue-600 rounded"></div>
+      
           </div>
           <div className="space-y-4 text-gray-600 leading-relaxed">
             <p>

@@ -1,102 +1,138 @@
-import React from 'react';
-import { 
-  BrainCircuit, 
-  FileText, 
-  Combine, 
-  Wind,
-  Navigation,
-  Cpu,
-  Shield,
-  Fuel,
-  Users,
-  Wrench,
-  Globe,
-  Anchor,
-  Satellite,
-  Handshake,
-  Drill
-} from 'lucide-react';
 
-export interface Service {
-  icon: React.ReactNode; 
+export interface ServiceFeature {
   title: string;
   description: string;
 }
 
-export const servicesData: Service[] = [
+export interface Service {
+  id: number;
+  slug: string; 
+  title: string;
+  description: string; 
+  image: string; 
+
+  pageTitle?: string;
+  longDescription?: string;
+  detailImages?: string[];
+  features?: ServiceFeature[];
+}
+
+export const services: Service[] = [
   {
-    icon: <BrainCircuit size={28} />,
-    title: "İntellektual idarəetmə sistemləri",
-    description: "Gəmilərin əməliyyat səmərəliliyini maksimuma çatdırmaq üçün hazırladığımız intellektual idarəetmə platformaları. Bu sistemlər, gəmilərin hərəkətini, yanacaq sərfiyyatını və texniki vəziyyətini real vaxt rejimində izləyir. Marşrut optimallaşdırılması, proqnozlaşdırıcı texniki baxış modulları və avtomatlaşdırılmış hesabatlar vasitəsilə qərar qəbuletmə proseslərini sürətləndirir. Məqsədimiz, əməliyyat xərclərini azaltmaq və təhlükəsizliyi ən yüksək səviyyəyə qaldırmaqdır."
+    id: 1,
+    slug: "clinical-consulting",
+    title: "Clinical Consulting",
+    description:
+      "We provide support in optimizing internal structures, improving operational efficiency, and developing strategic management approaches for clinics.",
+    image: "/images/caracterservic.png",
+    pageTitle: "Clinical Consulting – Enhancing Healthcare Excellence",
+    longDescription:
+      "Clinical consulting services are designed to optimize the performance and management of healthcare institutions. Whether you operate a clinic, hospital, or specialized medical facility, our expert consultants offer tailored solutions to address your unique challenges. By leveraging industry best practices and evidence-based strategies, we help healthcare organizations improve operational efficiency, enhance patient care, and navigate regulatory requirements. Our consulting services extend across various sectors, from strategic management and organizational development to technological integration and staff training. We work closely with your team to deliver sustainable improvements, ensuring your institution operates at its highest potential.\n\nWith our in-depth knowledge of healthcare trends and challenges, we assist in driving change that fosters long-term success. Our consultants are equipped with the expertise to help you stay ahead of evolving industry standards and patient expectations. We provide comprehensive solutions that are customized to your needs, focusing on maximizing growth, innovation, and quality of care.",
+    detailImages: [
+      "/images/aboutus1.jpg",
+      "/images/aboutus2.png",
+      "/images/aboutus3.jpg",
+      
+    ],
+    features: [
+      {
+        title: "Efficient Operational Strategies",
+        description:
+          "We provide comprehensive strategies to streamline your clinic's operations, enhancing efficiency and reducing costs.",
+      },
+      {
+        title: "Improved Patient Care",
+        description:
+          "Our solutions prioritize patient satisfaction and safety, helping you deliver high-quality care while maintaining compliance with healthcare standards.",
+      },
+      {
+        title: "Expert Staff Training",
+        description:
+          "We offer customized training programs to empower your staff with the skills necessary to excel in their roles, improving both patient outcomes and team performance.",
+      },
+      {
+        title: "Regulatory Compliance",
+        description:
+          "With an in-depth understanding of healthcare laws and regulations, we ensure your facility meets all necessary compliance standards, minimizing risk and legal exposure.",
+      },
+    ],
   },
   {
-    icon: <FileText size={28} />,
-    title: "Layihə üzrə konsaltinq",
-    description: "Dəniz sənayesində irimiqyaslı layihələrinizin hər mərhələsində peşəkar dəstək göstəririk. İlkin texniki-iqtisadi əsaslandırmadan başlayaraq, mühəndis-dizayn sənədlərinin hazırlanması, risklərin qiymətləndirilməsi və satınalma proseslərinin idarə edilməsinə qədər tam konsaltinq xidməti təklif edirik. Dekarbonizasiya və beynəlxalq ekoloji normaları (IMO, MARPOL) əsas tutaraq layihələrinizin dayanıqlı və gələcəyə uyğun olmasını təmin edirik."
+    id: 2,
+    slug: "operational-efficiency",
+    title: "Operational Efficiency",
+    description:
+      "Our team helps you streamline your clinic's daily operations to enhance productivity and patient care. We identify bottlenecks and implement proven strategies for a smoother workflow, ensuring your resources are used effectively.",
+    image: "/images/caracterservic.png",
+    pageTitle: "Operational Efficiency – Streamlining for Peak Performance",
+    longDescription:
+      "In the fast-paced healthcare environment, operational efficiency is key to delivering timely, high-quality patient care while managing costs. Our services focus on analyzing and re-engineering your clinic's workflows, from patient intake to discharge. We identify bottlenecks, eliminate redundant processes, and implement lean management principles tailored to the healthcare context.\n\nOur approach involves a deep dive into your current processes, resource allocation, and technology usage. We then provide a clear roadmap for improvement, helping you to enhance productivity, reduce patient wait times, and optimize the use of your valuable resources. The goal is to create a seamless operational flow that supports your clinical staff and improves the overall patient experience.",
+   detailImages: [
+      "/images/aboutus1.jpg",
+      "/images/aboutus2.png",
+      "/images/aboutus3.jpg",
+      
+    ],
+    features: [
+      {
+        title: "Workflow Optimization",
+        description:
+          "We analyze and redesign clinical and administrative workflows to eliminate waste and improve the speed and quality of care.",
+      },
+      {
+        title: "Resource Management",
+        description:
+          "Ensure optimal use of staff, equipment, and facilities to meet patient demand without over-stretching your budget.",
+      },
+      {
+        title: "Cost Reduction Analysis",
+        description:
+          "Identify areas of unnecessary expenditure and implement strategies to lower operational costs without compromising care quality.",
+      },
+      {
+        title: "Performance Dashboards",
+        description:
+          "Develop key performance indicators (KPIs) and visual dashboards to monitor operational performance in real-time.",
+      },
+    ],
   },
   {
-    icon: <Combine size={28} />,
-    title: "Konsultasiya və dizayn",
-    description: "Xəzər Dənizinin unikal şəraitinə uyğunlaşdırılmış gəmi və yaxtaların konseptual və detallı dizaynını həyata keçiririk. Mütəxəssislərimiz, ən son CAD/CAM proqram təminatlarından istifadə edərək hidrodinamik səmərəlilik, dayanıqlılıq və təhlükəsizlik kimi kritik amilləri nəzərə alırlar. Liman operatorları və xidmət gəmiləri üçün mövcud donanmanın modernləşdirilməsi və spesifik ehtiyaclara cavab verən yeni sistemlərin inteqrasiyası üzrə məsləhətlər veririk."
-  },
-  {
-    icon: <Wind size={28} />,
-    title: "WindWings® inteqrasiya",
-    description: "Gəmiçilikdə inqilabi bir addım olan WindWings® külək-qanad sistemlərinin inteqrasiyası ilə donanmanızın yanacaq sərini əhəmiyyətli dərəcədə azaldın. Bu sərt yelkənlər, külək enerjisindən istifadə edərək mühərriklərin yükünü yüngülləşdirir və CO₂ emissiyalarını minimuma endirir. Mühəndis komandamız, gəminizin struktur analizini apararaq sistemin optimal quraşdırılmasını və mövcud naviqasiya sistemləri ilə tam sinxronizasiyasını təmin edir."
-  },
-  {
-    icon: <Navigation size={28} />,
-    title: "Elektron Naviqasiya Sistemləri",
-    description: "Beynəlxalq Dəniz Təşkilatının (IMO) standartlarına tam cavab verən müasir elektron naviqasiya körpüsü avadanlıqları ilə təchizatı həyata keçiririk. ECDIS, ARPA radarları, DGPS və AIS kimi qabaqcıl sistemlərin tədarükü, quraşdırılması və heyətin təlimatlandırılmasını təmin edirik. Bu sistemlər, naviqasiya təhlükəsizliyini artırır, insan səhvi riskini azaldır və gəmilərin SOLAS konvensiyasının tələblərinə tam uyğunluğunu təmin edir."
-  },
-  {
-    icon: <Cpu size={28} />,
-    title: "Gəmi Proseslərinin Avtomatlaşdırılması",
-    description: "Gəmi üzərindəki rutin və mürəkkəb əməliyyatları avtomatlaşdıraraq insan resurslarından daha səmərəli istifadəni təmin edirik. Yük əməliyyatları, ballast suyunun idarə olunması və maşın şöbəsindəki proseslərin avtomatlaşdırılması, əməliyyat dəqiqliyini artırır və potensial təhlükələri azaldır. Təklif etdiyimiz həllər, gəminizin mövcud infrastrukturuna asanlıqla inteqrasiya oluna bilir və etibarlı işləməyə zəmanət verir."
-  },
-  {
-    icon: <Shield size={28} />,
-    title: "Dəniz Kibertəhlükəsizliyi",
-    description: "Rəqəmsallaşan dənizçilikdə kiberhücumlar ciddi təhdidə çevrilmişdir. Naviqasiya, rabitə və idarəetmə sistemlərinizin təhlükəsizliyini təmin etmək üçün çoxqatmanlı müdafiə strategiyaları təklif edirik. Mütəxəssislərimiz, zəifliklərin aşkarlanması (penetration testing), risk analizi, heyətin təlimatlandırılması və 24/7 monitorinq xidmətləri ilə gəminizin rəqəmsal toxunulmazlığını təmin edir."
-  },
-  {
-    icon: <Fuel size={28} />,
-    title: "Yanacaq Səmərəliliyi Həlləri",
-    description: "Yanacaq, gəmiçilikdə ən böyük əməliyyat xərcidir. Biz, yanacaq sərfiyyatını real zamanlı izləyən sensorlar və analiz proqramları vasitəsilə səmərəliliyi artırmağa kömək edirik. Gəminin sürəti, trim və hava şəraiti kimi faktorları analiz edərək optimal hərəkət rejimlərini tövsiyə edirik. Bu yanaşma, təkcə xərcləri azaltmır, həm də karbon ayaq izinizi kiçildərək ekoloji öhdəliklərinizi yerinə yetirməyə kömək edir."
-  },
-  {
-    icon: <Users size={28} />,
-    title: "Heyət üçün Təlim və Simulyatorlar",
-    description: "Yüksək ixtisaslı heyət, təhlükəsiz və səmərəli əməliyyatların təməlidir. Ən müasir körpü və maşın şöbəsi simulyatorlarımız vasitəsilə heyət üzvlərinə real şəraitə yaxın təlimlər keçirik. Fövqəladə hallar, mürəkkəb manevrlər və yeni avadanlıqların mənimsənilməsi üzrə təşkil edilən proqramlarımız, heyətin peşəkarlığını və özünəinamını artırır. Təlimlər həm bizim mərkəzimizdə, həm də sifarişçinin məkanında təşkil edilə bilər."
-  },
-  {
-    icon: <Wrench size={28} />,
-    title: "Proqnozlaşdırıcı Texniki Baxış",
-    description: "Avadanlıqlarda yaranan nasazlıqlar bahalı təmirə və planlaşdırılmamış dayanmalara səbəb olur. Bizim proqnozlaşdırıcı texniki baxış (predictive maintenance) sistemlərimiz, mühərrik və digər vacib mexanizmlərin işini daimi analiz edir. Vibrasiya, temperatur və digər göstəricilərdəki kiçik dəyişiklikləri belə aşkarlayaraq potensial nasazlıqları əvvəlcədən xəbər verir. Bu, təmir işlərini öncədən planlaşdırmağa və böyük xərclərdən yayınmağa imkan tanıyır."
-  },
-  {
-    icon: <Globe size={28} />,
-    title: "Ekoloji Standartlara Uyğunluq",
-    description: "Dənizçilikdə ekoloji tələblər getdikcə sərtləşir. Komandamız, gəmilərinizin IMO 2020 kükürd limiti, Ballast Suyu İdarəetmə Konvensiyası (BWM) və Karbon İntensivliyi Göstəricisi (CII) kimi ən son beynəlxalq standartlara tam uyğunluğunu təmin etmək üçün hərtərəfli məsləhət xidmətləri göstərir. Emissiyaların azaldılması texnologiyaları və sənədləşmə proseslərində tam dəstək veririk."
-  },
-  {
-    icon: <Anchor size={28} />,
-    title: "Liman Əməliyyatlarının Optimallaşdırılması",
-    description: "Limanlarda səmərəlilik, bütün təchizat zənciri üçün həlledici rol oynayır. Gəmilərin yanaşması, yük əməliyyatları və sənədləşmə proseslərini rəqəmsallaşdıran və optimallaşdıran proqram təminatları təklif edirik. Terminal idarəetmə sistemlərimiz (TOS), limanlarda gözləmə müddətini azaldır, resurslardan istifadəni yaxşılaşdırır və limanın ümumi məhsuldarlığını əhəmiyyətli dərəcədə artırır."
-  },
-  {
-    icon: <Satellite size={28} />,
-    title: "Peyk Rabitə Sistemləri",
-    description: "Müasir gəmiçilik fasiləsiz rabitə tələb edir. Biz, dünyanın istənilən nöqtəsində yüksək sürətli və etibarlı internet bağlantısı təmin edən VSAT (Very Small Aperture Terminal) peyk rabitə sistemlərinin quraşdırılması və texniki dəstəyini təmin edirik. Bu, həm heyətin rifahı, həm də gəminin əməliyyat məlumatlarını sahilə ötürməsi üçün kritik əhəmiyyət daşıyır. Fərqli ehtiyaclara uyğun çevik tarif planları təklif edirik."
-  },
-  {
-    icon: <Handshake size={28} />,
-    title: "Gəmi Brokeraj Xidmətləri",
-    description: "Gəmi alqı-satqısı mürəkkəb və çoxmərhələli bir prosesdir. Təcrübəli broker komandamız, sizin üçün ən uyğun gəminin tapılmasından qiymət danışıqlarına, texniki yoxlamanın təşkilindən hüquqi sənədləşmənin tamamlanmasına qədər bütün prosesi idarə edir. Həm yeni tikilən, həm də ikinci əl gəmi bazarında geniş əlaqə şəbəkəmizlə sizə ən sərfəli şərtləri təmin etməyə çalışırıq."
-  },
-  {
-    icon: <Drill size={28} />,
-    title: "Dəniz Platformalarına Dəstək",
-    description: "Offşor neft-qaz sənayesi yüksək ixtisaslaşma və xüsusi yanaşma tələb edir. Dəniz platformalarının və qazma qurğularının fasiləsiz işini təmin etmək üçün hərtərəfli təchizat və logistika xidmətləri göstəririk. Ehtiyat hissələrinin tədarükü, ixtisaslaşmış personalın daşınması, sualtı təmir işlərinin təşkili və təcili ləvazimatların çatdırılması kimi kritik əməliyyatları yüksək təhlükəsizlik standartları ilə həyata keçiririk."
+    id: 3,
+    slug: "strategic-management",
+    title: "Strategic Management",
+    description:
+      "Develop long-term strategies for growth and sustainability. We work with you to create a roadmap for success, focusing on market positioning, financial planning, and adapting to the evolving healthcare landscape for lasting success.",
+    image: "/images/caracterservic.png",
+    pageTitle: "Strategic Management – Charting a Course for Future Growth",
+    longDescription:
+      "Strategic management provides the vision and direction needed for long-term success in a competitive healthcare market. Our consultants work with your leadership team to craft a robust strategy that aligns with your mission and prepares you for future challenges and opportunities. This includes a thorough analysis of the market landscape, competitor positioning, and emerging healthcare trends.\n\nWe help you define clear, achievable goals and develop a strategic plan that covers service line development, financial sustainability, and market expansion. By focusing on a clear strategy, your organization can make informed decisions, allocate resources effectively, and build a resilient foundation for sustainable growth and a strong reputation in the community.",
+     detailImages: [
+      "/images/aboutus1.jpg",
+      "/images/aboutus2.png",
+      "/images/aboutus3.jpg",
+      
+    ],
+    features: [
+      {
+        title: "Market & Competitor Analysis",
+        description:
+          "Gain a deep understanding of your market environment and competitive landscape to identify unique opportunities for growth.",
+      },
+      {
+        title: "Long-Term Growth Planning",
+        description:
+          "Develop a 5-10 year strategic roadmap that outlines key initiatives, financial targets, and milestones for success.",
+      },
+      {
+        title: "Financial Sustainability",
+        description:
+          "Create financial models and strategies to ensure long-term profitability and investment in future capabilities.",
+      },
+      {
+        title: "Brand & Reputation Management",
+        description:
+          "Build a strong brand identity and manage your reputation to become a trusted healthcare provider in your community.",
+      },
+    ],
   },
 ];
