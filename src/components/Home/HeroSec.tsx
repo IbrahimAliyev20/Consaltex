@@ -27,7 +27,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative w-full text-white flex items-center min-h-screen overflow-hidden">
+    <section className="relative w-full text-white flex items-center h-[580px] md:min-h-screen overflow-hidden">
       {/* Arxa Fon Slayderi */}
       <div className="absolute inset-0 -z-20">
         {slides.map((slide, index) => (
@@ -53,8 +53,8 @@ export function HeroSection() {
 
       {/* Mətn Hissəsi */}
       <div className="container mx-auto px-4 h-full flex flex-col justify-center py-8 md:py-20">
-        <div className="w-[50%] flex flex-col gap-15">
-          <h1 className="text-[22px] md:text-[64px] font-bold max-w-3xl leading-tight">
+        <div className="w-[100%] md:w-[50%] flex flex-col gap-15">
+          <h1 className="text-[32px] md:text-[64px] font-bold max-w-3xl leading-tight">
             Sound Decisions <br />
             <span className="text-[#3674B5] font-bold">Stronger</span> Future!
           </h1>

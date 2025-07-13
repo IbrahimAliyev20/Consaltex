@@ -3,9 +3,9 @@ import React from 'react';
 
 export default function MissionPage() {
   return (
-    <div className="flex flex-col items-center py-8 md:py-16 px-4 md:px-8 lg:px-16 bg-background text-foreground">
+    <div className="flex flex-col items-center bg-background text-foreground">
       {/* Our Mission Section */}
-      <section className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 w-full max-w-6xl mb-16">
+      <section className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 w-full  mb-16">
         <div className="flex flex-col md:w-1/2  border-l-2  border-[#53B8B8] pl-4 md:pl-16">
           <div className="flex items-center mb-4">
             <span className="text-[#1C746F] text-sm font-medium">About us</span>
@@ -21,14 +21,14 @@ export default function MissionPage() {
             alt="Ship with green shipping sails"
             width={527}
             height={272}
-            className="rounded-lg shadow-lg object-cover w-[373px] h-[182px] md:w-full  md:h-[272px] max-w-md md:max-w-full"
+            className="rounded-lg shadow-lg object-cover w-[373px] h-[282px] md:w-full  md:h-[272px] max-w-md md:max-w-full"
           />
         </div>
       </section>
 
       {/* Our Vision Section */}
-      <section className="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-16 w-full max-w-6xl">
-        <div className="flex flex-col md:w-1/2  border-r-2 md:border-l-2  border-[#53B8B8] pl-4 md:pl-16">
+      <section className="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-16 w-full">
+        <div className="flex flex-col md:w-1/2  border-l-2  border-[#53B8B8] pl-4 md:pl-16">
           <div className="flex items-center mb-4">
             <span className="text-[#1C746F] text-sm font-medium">About us</span>
           </div>
@@ -43,7 +43,7 @@ export default function MissionPage() {
             alt="Large cargo ship with sails"
             width={500}
             height={272}
-            className="rounded-lg shadow-lg object-cover w-[373px] h-[182px] md:w-full md:h-[272px] max-w-md md:max-w-full"
+            className="rounded-lg shadow-lg object-cover w-[373px] h-[282px] md:w-full md:h-[272px] max-w-md md:max-w-full"
           />
         </div>
       </section>

@@ -4,17 +4,17 @@ import { Button } from "@/components/ui/button";
 
 export default function AboutUsSec() {
   return (
-    <section className="py-16 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className=" container mx-auto px-4  ">
       <div className="grid lg:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
           <div>
-            <h2 className="relative text-3xl md:text-4xl font-bold text-gray-900 mb-2 w-fit pb-4">
+            <h2 className="relative text-[22px] md:text-4xl font-bold text-gray-900 mb-2 w-fit pb-4">
               About us
                 <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-500 to-white"></span>
             </h2>
       
           </div>
-          <div className="space-y-4 text-gray-600 leading-relaxed">
+          <div className="text-[14px] md:text-base  space-y-4 text-gray-600 leading-relaxed">
             <p>
               Lorem ipsum dolor sit amet consectetur. Turpis non facilisi
               fringilla faucibus nibh. Enim lacus pulvinar non magna sit nibh
@@ -27,7 +27,7 @@ export default function AboutUsSec() {
               venenatis mattis eget Lorem ipsum dolor sit amet consectetur.
             </p>
           </div>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md flex items-center gap-2 transition-colors">
+          <Button className=" w-[161px] h-[44px] bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md flex items-center gap-2 transition-colors">
             See more
             <ArrowRight className="w-4 h-4" />
           </Button>

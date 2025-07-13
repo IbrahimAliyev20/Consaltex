@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/lib/data/servicesData";
 import { notFound } from "next/navigation";
-import { Check,  CheckIcon,  ChevronRight } from "lucide-react";
+import { CheckIcon, ChevronRight } from "lucide-react";
 
 interface ServiceSinglePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -17,8 +17,9 @@ export async function generateStaticParams() {
   }));
 }
 
-const ServiceSinglePage: React.FC<ServiceSinglePageProps> = ({ params }) => {
-  const service = services.find((s) => s.slug === params.slug);
+const ServiceSinglePage: React.FC<ServiceSinglePageProps> = async ({ params }) => {
+  const resolvedParams = await params;
+  const service = services.find((s) => s.slug === resolvedParams.slug);
 
   if (!service) {
     notFound();
@@ -30,7 +31,6 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = ({ params }) => {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <main>
-        {/* === BREADCRUMBS === */}
         <nav className="flex items-center text-sm text-gray-500 mb-8">
           <Link
             href="/services"
@@ -42,11 +42,9 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = ({ params }) => {
           <span className="font-medium text-gray-700">{service.title}</span>
         </nav>
 
-        {/* === ƏSAS MƏZMUN (MƏTN + ŞƏKİLLƏR) === */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* --- SOL SÜTUN (Mətn) --- */}
           <div className="lg:col-span-3">
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-[22px] lg:text-4xl font-bold text-gray-900 leading-tight">
               {service.pageTitle || service.title}
             </h1>
             <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
@@ -56,11 +54,9 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = ({ params }) => {
             </div>
           </div>
 
-          {/* --- SAĞ SÜTUN (Şəkillər) --- */}
           {service.detailImages && service.detailImages.length >= 3 && (
             <div className="lg:col-span-2">
               <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[450px]">
-                {/* Böyük Şəkil */}
                 <div className="col-span-1 row-span-2 relative rounded-lg overflow-hidden shadow-md">
                   <Image
                     src={service.detailImages[0]}
@@ -70,7 +66,6 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = ({ params }) => {
                     className="transition-transform duration-300 hover:scale-105"
                   />
                 </div>
-                {/* Kiçik Şəkil 1 */}
                 <div className="col-span-1 row-span-1 relative rounded-lg overflow-hidden shadow-md">
                   <Image
                     src={service.detailImages[1]}
@@ -80,7 +75,6 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = ({ params }) => {
                     className="transition-transform duration-300 hover:scale-105"
                   />
                 </div>
-                {/* Kiçik Şəkil 2 */}
                 <div className="col-span-1 row-span-1 relative rounded-lg overflow-hidden shadow-md">
                   <Image
                     src={service.detailImages[2]}
@@ -95,15 +89,13 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = ({ params }) => {
           )}
         </div>
 
-        {/* === XÜSUSİYYƏTLƏR BÖLMƏSİ (FEATURES) === */}
         {service.features && service.features.length > 0 && (
           <div className="mt-16 md:mt-24">
             <div className="w-full space-y-6">
               {service.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <div className="w-5 h-5 bg-[#43ABF5] rounded-full flex items-center justify-center">
-                    <CheckIcon 
-                    className="w-3 h-3 font-bold text-white"/>
+                  <div className="w-8 h-6 md:w-7 md:h-7 bg-[#43ABF5] rounded-full flex items-center justify-center">
+                    <CheckIcon className="w-6 md:w-5 h-4 md:h-5 font-bold text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-800">

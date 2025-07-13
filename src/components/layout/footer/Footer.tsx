@@ -4,6 +4,7 @@ import React from "react";
 import { Instagram, Linkedin, X, Dribbble } from "lucide-react"; // Updated icons
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import Image from "next/image";
 
 // Updated social media links to match the image
 const socialLinks = [
@@ -27,12 +28,19 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-black border-t border-border">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-16">
           <div className="flex flex-col items-start space-y-6">
-            <div className="text-3xl font-bold text-foreground">LOGO</div>{" "}
-            <p className="text-muted-foreground text-sm">Follow us on</p>
+            <div className="text-3xl font-bold text-foreground">
+              <Image
+                src="/images/logo.svg"
+                alt="Consaltex Logo"
+                width={175}
+                height={88}
+              />    
+            </div>
+            <p className="text-white text-sm">Follow us on</p>
             <div className="flex items-center space-x-4">
               {" "}
               {socialLinks.map((link) => (
@@ -51,7 +59,7 @@ export function Footer() {
           </div>
           <div></div>
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-6">
+            <h3 className="text-lg font-semibold text-white mb-6">
               Navigation
             </h3>
             <nav>
@@ -64,8 +72,8 @@ export function Footer() {
                       <Link
                         href={link.href}
                         className={`
-                          ${isActive ? "text-primary" : "text-muted-foreground"}
-                          hover:text-primary transition-colors text-sm
+                          ${isActive ? "text-white" : "text-muted-foreground"}
+                          hover:text-white transition-colors text-sm
                         `}
                       >
                         {t(link.key)}
@@ -78,7 +86,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-6">
+            <h3 className="text-lg font-semibold text-white mb-6">
               Contact
             </h3>
             <div className="space-y-4 text-muted-foreground text-sm">
@@ -98,7 +106,7 @@ export function Footer() {
             height="16"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="currentColor"
+            stroke="white"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -107,7 +115,7 @@ export function Footer() {
             <circle cx="12" cy="12" r="10" />
             <path d="M14.5 9a3.5 3.5 0 1 0 0 6h1" />
           </svg>
-          <p>{t("copyright", { year: currentYear })}</p>
+          <p className="text-white">{t("copyright", { year: currentYear })}</p>
         </div>
       </div>
     </footer>
