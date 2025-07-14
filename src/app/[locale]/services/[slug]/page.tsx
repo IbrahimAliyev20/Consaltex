@@ -19,9 +19,7 @@ export default async function ServiceSinglePage({
     notFound();
   }
 
-  const similarPosts = services
-    .filter((p) => p.slug !== service.slug)
-    .slice(0, 4);
+
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
