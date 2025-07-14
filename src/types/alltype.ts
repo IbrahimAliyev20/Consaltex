@@ -51,3 +51,60 @@ export interface AboutType{
     image: {image: string}[]
 
 }
+
+export interface ServiceAttribute {
+  title: string;
+  description: string;
+}
+
+export interface ServiceImage {
+  image: string;
+}
+
+
+
+export interface OurServicesType {
+  title: string;
+  slug: string;
+  description: string;
+  meta_title: string;
+  meta_description: string;
+  meta_keyword: string;
+  image: string;
+  attributes: ServiceAttribute[];
+  images: ServiceImage[];
+}
+
+
+
+export interface PaginatedServicesResponse {
+  data: OurServicesType[];
+  links: {
+    first: string;
+    last: string;
+    prev: string | null;
+    next: string | null;
+  };
+  meta: {
+    current_page: number;
+    from: number;
+    last_page: number;
+    links: {
+      url: string | null;
+      label: string;
+      active: boolean;
+    }[];
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+  };
+}
+
+export interface SingleServiceResponse {
+  timestamp: string;
+  status: boolean;
+  message: string;
+  lang: string;
+  data: OurServicesType;
+}

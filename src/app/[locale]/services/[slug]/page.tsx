@@ -1,34 +1,30 @@
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { services } from "@/lib/data/servicesData";
 import { notFound } from "next/navigation";
-import { CheckIcon, ChevronRight } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react"; 
+import { getOurServiceSlug, } from "@/lib/our-services"; 
+
 
 interface ServiceSinglePageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default async function ServiceSinglePage({
-  params,
-}: ServiceSinglePageProps) {
+
+export default async function ServiceSinglePage({ params }: ServiceSinglePageProps) {
   const { slug } = await params;
-  const service = services.find((p) => p.slug === slug);
+  const service = await getOurServiceSlug(slug);
 
   if (!service) {
     notFound();
   }
 
-
-
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <main>
         <nav className="flex items-center text-sm text-gray-500 mb-8">
-          <Link
-            href="/services"
-            className="hover:text-blue-600 hover:underline"
-          >
+          <Link href="/services" className="hover:text-blue-600 hover:underline">
             Services
           </Link>
           <ChevronRight className="w-4 h-4 mx-1" />
@@ -38,23 +34,20 @@ export default async function ServiceSinglePage({
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           <div className="lg:col-span-3">
             <h1 className="text-[22px] lg:text-4xl font-bold text-gray-900 leading-tight">
-              {service.pageTitle || service.title}
+              {service.title}
             </h1>
-            <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
-              {service.longDescription
-                ?.split("\n\n")
-                .map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-            </div>
+            <div 
+              className="mt-6 space-y-4 text-gray-600 leading-relaxed prose"
+              dangerouslySetInnerHTML={{ __html: service.description }}
+            />
           </div>
 
-          {service.detailImages && service.detailImages.length >= 3 && (
+          {service.images && service.images.length >= 3 && (
             <div className="lg:col-span-2">
               <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[450px]">
                 <div className="col-span-1 row-span-2 relative rounded-lg overflow-hidden shadow-md">
                   <Image
-                    src={service.detailImages[0]}
+                    src={service.images[0].image}
                     alt={`${service.title} main image`}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-105"
@@ -62,7 +55,7 @@ export default async function ServiceSinglePage({
                 </div>
                 <div className="col-span-1 row-span-1 relative rounded-lg overflow-hidden shadow-md">
                   <Image
-                    src={service.detailImages[1]}
+                    src={service.images[1].image}
                     alt={`${service.title} detail image 2`}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-105"
@@ -70,7 +63,7 @@ export default async function ServiceSinglePage({
                 </div>
                 <div className="col-span-1 row-span-1 relative rounded-lg overflow-hidden shadow-md">
                   <Image
-                    src={service.detailImages[2]}
+                    src={service.images[2].image}
                     alt={`${service.title} detail image 3`}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-105"
@@ -81,13 +74,13 @@ export default async function ServiceSinglePage({
           )}
         </div>
 
-        {service.features && service.features.length > 0 && (
+        {service.attributes && service.attributes.length > 0 && (
           <div className="mt-16 md:mt-24">
             <div className="w-full space-y-6">
-              {service.features.map((feature, index) => (
+              {service.attributes.map((feature, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <div className="w-8 h-6 md:w-7 md:h-7 bg-[#43ABF5] rounded-full flex items-center justify-center">
-                    <CheckIcon className="w-6 md:w-5 h-4 md:h-5 font-bold text-white" />
+                  <div className="w-7 h-7 bg-[#43ABF5] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 font-bold text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-800">

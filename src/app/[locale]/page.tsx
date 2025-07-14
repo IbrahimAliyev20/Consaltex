@@ -8,10 +8,16 @@ import { ArrowRightIcon } from "lucide-react";
 import ContactPage from "@/components/Contact/ContactSingle";
 import { getHeroSlider } from "@/lib/heroslider";
 import { getContact } from "@/lib/contact";
+import { getOurServices } from "@/lib/our-services";
 
 export default async function HomePage() {
-  const heroslider = await getHeroSlider();
-  const contact = await getContact();
+  const [heroslider, contact, servicesResponse] = await Promise.all([
+    getHeroSlider(),
+    getContact(),
+    getOurServices()
+  ]);
+
+  const allServices = servicesResponse.data;
 
   return (
     <div>
@@ -43,7 +49,7 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <ServiceSec limit={3} />
+        <ServiceSec services={allServices} limit={3} />
 
         <div className="flex justify-end mt-8 md:hidden">
           <Link

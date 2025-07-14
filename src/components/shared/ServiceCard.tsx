@@ -1,18 +1,19 @@
+
 import Link from 'next/link'; 
 import React from 'react';
 import Image from 'next/image';
-import { Service } from '@/lib/data/servicesData';
+import { OurServicesType } from '@/types/alltype'; 
 import { ArrowUpRight } from 'lucide-react';
 
 interface ServiceCardProps {
-  service: Service;
+  service: OurServicesType; 
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <Link 
       href={`/services/${service.slug}`} 
-      className="flex flex-col md:flex-row items-center bg-white  rounded-lg transition-shadow duration-300 gap-6 group"
+      className="flex flex-col md:flex-row items-center bg-white rounded-lg transition-shadow duration-300 gap-6 group"
     >
       <div className="w-full md:w-1/4 flex-shrink-0">
         <Image
@@ -24,11 +25,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         />
       </div>
 
-      <div className="flex-grow ">
+      <div >
         <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-        <p className="text-gray-600 leading-relaxed">
-          {service.description}
-        </p>
+        <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.description.substring(0, 150) + '...' }} />
       </div>
 
       <div className="hidden md:flex flex-shrink-0 ml-0 md:ml-6 mt-4 md:mt-0">
@@ -36,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           aria-label={`Learn more about ${service.title}`}
           className="bg-blue-100 group-hover:bg-[#1F45EC] text-blue-600 rounded-full w-12 h-12 flex items-center justify-center transition-colors duration-300"
         >
-          <ArrowUpRight  className=' group-hover:text-white'/>
+          <ArrowUpRight className='group-hover:text-white'/>
         </div>
       </div>
     </Link>
