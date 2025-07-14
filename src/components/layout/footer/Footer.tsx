@@ -17,7 +17,7 @@ const socialLinks = [
 const navLinkData = [
   { href: "/", key: "home" },
   { href: "/about", key: "about" },
-  { href: "/service", key: "services" },
+  { href: "/services", key: "services" },
   { href: "/information", key: "information" },
   { href: "/contact", key: "contact" },
 ];
