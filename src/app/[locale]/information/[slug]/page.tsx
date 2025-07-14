@@ -70,6 +70,7 @@ export default async function InfoSinglePage({ params }: InfoSinglePageProps){
                   See More
                 </Link>
             </div>
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {similarPosts.map(p => (
                     <InfoCard 
