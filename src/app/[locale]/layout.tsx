@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import TopLoader from "@/components/shared/TopLoader";
 import { Navbar } from "@/components/layout/header/Navbar";
-import { Footer } from "@/components/layout/footer/Footer";
+import Footer from "@/components/layout/footer/Footer";
 
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { getAdvantage } from '@/lib/advantage';
 
 interface VisionItemProps {
   icon: string;
@@ -30,24 +31,8 @@ function VisionItem({ icon, title, description }: VisionItemProps) {
   );
 }
 
-export function VisionSection() {
-  const visionData = [
-    {
-      icon: "/icons/visionicon1.png",
-      title: 'Elmi əsaslı Yanaşma',
-      description: 'Bizim məsləhət xidmətlərimiz tibbi protokollar, beynəlxalq təcrübə və sübutlara əsaslanan metodlarla formalaşdırılır.',
-    },
-    {
-      icon: "/icons/visionicon2.png",
-      title: 'Fərdi və Strateji Həllər',
-      description: 'Hər klinika, xəstəxana və ya səhiyyə layihəsi üçün unikal strategiya hazırlayır, ehtiyaclara uyğun çevik və effektiv həllər təqdim edirik.',
-    },
-    {
-      icon: "/icons/visionicon3.png",
-      title: 'Təcrübəli Komanda',
-      description: 'Səhiyyə menecmenti, klinik fəaliyyət, marketing və texnologiya sahələrində çoxillik təcrübəyə sahib komandamızla güclü dəstək veririk.',
-    },
-  ];
+export async function VisionSection() {
+  const visionData = await getAdvantage();
 
   return (
     <section className=" bg-white">
@@ -56,7 +41,7 @@ export function VisionSection() {
           {visionData.map((item, index) => (
             <VisionItem
               key={index}
-              icon={item.icon}
+              icon={item.image}
               title={item.title}
               description={item.description}
             />

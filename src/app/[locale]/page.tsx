@@ -6,12 +6,17 @@ import ServiceSec from "@/components/Home/ServiceSec";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 import ContactPage from "@/components/Contact/ContactSingle";
+import { getHeroSlider } from "@/lib/heroslider";
+import { getContact } from "@/lib/contact";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const heroslider = await getHeroSlider();
+  const contact = await getContact();
+
   return (
     <div>
       <div>
-        <HeroSection />
+        <HeroSection heroslider={heroslider} />
       </div>
 
       <div className="container mx-auto px-4 py-6 md:py-14">
@@ -37,7 +42,7 @@ export default function HomePage() {
             <ArrowRightIcon className="ml-2 h-5 w-5" />
           </Link>
         </div>
-        
+
         <ServiceSec limit={3} />
 
         <div className="flex justify-end mt-8 md:hidden">
@@ -51,7 +56,6 @@ export default function HomePage() {
         </div>
       </div>
 
-
       <div className="container mx-auto px-4 pt-6 md:pt-14">
         <div className="pb-10">
           <h2 className="relative text-[22px] md:text-4xl font-bold text-gray-900 mb-2 w-fit pb-4">
@@ -59,7 +63,7 @@ export default function HomePage() {
             <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-500 to-white"></span>
           </h2>
         </div>
-        <ContactPage />
+        <ContactPage contact={contact} />
       </div>
     </div>
   );

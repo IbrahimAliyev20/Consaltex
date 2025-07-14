@@ -1,20 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { ContactType } from "@/types/alltype";
+import { submitContactForm } from "@/lib/contact-form";
 
 interface IFormData {
   name: string;
   email: string;
-  phone: string; // Added phone field
+  phone: string;
   message: string;
 }
 
-export default function ContactPage() {
+type ContactTypeProps = {
+  contact: ContactType;
+};
+
+export default function ContactPage({ contact }: ContactTypeProps) {
+  const [formStatus, setFormStatus] = useState<{
+    message: string;
+    type: "success" | "error" | "";
+  }>({ message: "", type: "" });
+
   const {
     register,
     handleSubmit,
@@ -24,17 +35,44 @@ export default function ContactPage() {
     defaultValues: {
       name: "",
       email: "",
-      phone: "", 
+      phone: "",
       message: "",
     },
   });
 
-  function onSubmit(values: IFormData) {
-    console.log("Form məlumatları:", values);
+  async function onSubmit(values: IFormData) {
+    setFormStatus({ message: "", type: "" });
 
-    reset();
+    try {
+      const payload = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        note: values.message,
+      };
 
-    alert("Mesajınız uğurla göndərildi!");
+      const response = await submitContactForm(payload);
+
+      if (response.status) {
+        setFormStatus({
+          message: "Your message has been sent successfully!",
+          type: "success",
+        });
+        reset();
+      } else {
+        setFormStatus({
+          message:
+            response.message || "An error occurred while sending the message.",
+          type: "error",
+        });
+      }
+    } catch (error) {
+      let errorMessage = "An unknown server error occurred.";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      setFormStatus({ message: errorMessage, type: "error" });
+    }
   }
 
   return (
@@ -48,14 +86,13 @@ export default function ContactPage() {
             <div>
               <p className="text-sm text-muted-foreground">Əlaqə telefon</p>
               <a
-                href="tel:+994707007070"
+                href={`tel:${contact.phone}`}
                 className="text-[16px] md:text-lg font-semibold text-foreground"
               >
-                +994 70 700 70 70
+                {contact.phone}
               </a>
             </div>
           </div>
-
           <div className="bg-card p-6 rounded-lg flex items-center space-x-4">
             <div className="p-3 rounded-full text-muted-foreground">
               <Mail className="w-6 h-6 md:w-8 md:h-8" />
@@ -63,14 +100,13 @@ export default function ContactPage() {
             <div>
               <p className="text-sm text-muted-foreground">Email</p>
               <a
-                href="mailto:greencaspian@gmail.com"
+                href={`mailto:${contact.email}`}
                 className="text-[16px] md:text-lg font-semibold text-foreground"
               >
-                greencaspian@gmail.com
+                {contact.email}
               </a>
             </div>
           </div>
-
           <div className="bg-card p-6 rounded-lg flex items-center space-x-4">
             <div className="p-3 rounded-full text-muted-foreground">
               <MapPin className="w-6 h-6 md:w-8 md:h-8" />
@@ -81,7 +117,7 @@ export default function ContactPage() {
                 href="#"
                 className="text-[16px] md:text-lg font-semibold text-foreground"
               >
-                Lorem ipsum dolor sit amet
+                {contact.address}
               </a>
             </div>
           </div>
@@ -117,7 +153,6 @@ export default function ContactPage() {
                   </p>
                 )}
               </div>
-
               <div>
                 <label
                   htmlFor="email"
@@ -133,8 +168,7 @@ export default function ContactPage() {
                     required: "Email ünvanı mütləqdir.",
                     pattern: {
                       value: /^\S+@\S+\.\S+$/,
-                      message:
-                        "Zəhmət olmasa, düzgün email ünvanı daxil edin.",
+                      message: "Zəhmət olmasa, düzgün email ünvanı daxil edin.",
                     },
                   })}
                 />
@@ -144,7 +178,6 @@ export default function ContactPage() {
                   </p>
                 )}
               </div>
-
               <div>
                 <label
                   htmlFor="phone"
@@ -159,9 +192,10 @@ export default function ContactPage() {
                   {...register("phone", {
                     required: "Telefon nömrəsi mütləqdir.",
                     pattern: {
-                        value: /^\+?[0-9]{10,}$/, 
-                        message: "Zəhmət olmasa, düzgün telefon nömrəsi daxil edin.",
-                    }
+                      value: /^\+?[0-9]{10,}$/,
+                      message:
+                        "Zəhmət olmasa, düzgün telefon nömrəsi daxil edin.",
+                    },
                   })}
                 />
                 {errors.phone && (
@@ -170,8 +204,6 @@ export default function ContactPage() {
                   </p>
                 )}
               </div>
-
-
               <div>
                 <label
                   htmlFor="message"
@@ -204,16 +236,28 @@ export default function ContactPage() {
                 variant="default"
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#3674B5] text-white "
+                className="w-full bg-[#3674B5] text-white"
               >
                 {isSubmitting ? "Göndərilir..." : "Mesajınızı göndərin"}
                 <ArrowUpRight className="ml-2 h-4 w-4" />
               </Button>
+
+              {formStatus.message && (
+                <p
+                  className={`mt-4 text-sm font-medium ${
+                    formStatus.type === "success"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  {formStatus.message}
+                </p>
+              )}
             </form>
 
             <div className="relative w-full h-64 lg:h-auto rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24311.02791725569!2d49.96615792107135!3d40.38938559448785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2saz!4v1751883620153!5m2!1str!2saz"
+                src={contact.map}
                 width="100%"
                 height="100%"
                 loading="lazy"
