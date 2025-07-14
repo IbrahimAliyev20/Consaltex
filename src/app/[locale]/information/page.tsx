@@ -1,12 +1,14 @@
-import InformationPage from '@/components/Information/InformationPage'
-import React from 'react'
 
-function Information() {
+import InformationPage from '@/components/Information/InformationPage';
+import { getInformations } from '@/lib/information';
+import React from 'react';
+
+export default async function Information() {
+  const tagsWithPosts = await getInformations();
+
   return (
     <div>
-      <InformationPage />
+      <InformationPage tags={tagsWithPosts} />
     </div>
-  )
+  );
 }
-
-export default Information

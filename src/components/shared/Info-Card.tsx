@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { Clock, CalendarDays, ArrowUpRight } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
-import Image from 'next/image';
+import React from "react";
+import { Clock, CalendarDays, ArrowUpRight } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 interface InfoCardProps {
   imageSrc: string;
@@ -10,12 +9,22 @@ interface InfoCardProps {
   date: string;
   title: string;
   description: string;
-  slug: string; 
+  slug: string;
 }
 
-export function InfoCard({ imageSrc, readingTime, date, title, description, slug }: InfoCardProps) {
+export function InfoCard({
+  imageSrc,
+  readingTime,
+  date,
+  title,
+  description,
+  slug,
+}: InfoCardProps) {
   return (
-    <Link href={`/information/${slug}`} className="group bg-card overflow-hidden flex flex-col h-full transition-transform hover:-translate-y-1">
+    <Link
+      href={`/information/${slug}`}
+      className="group bg-card overflow-hidden flex flex-col h-full transition-transform hover:-translate-y-1"
+    >
       <Image
         src={imageSrc}
         alt={title}
@@ -31,10 +40,10 @@ export function InfoCard({ imageSrc, readingTime, date, title, description, slug
           <span>{date}</span>
         </div>
         <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
-        <p className="text-sm text-muted-foreground mb-4 flex-grow">
-          {description}
-        </p>
-        
+        <p
+          className="text-sm text-muted-foreground mb-4 flex-grow line-clamp-3"
+          dangerouslySetInnerHTML={{ __html: description || "" }}
+        />
         <div className="inline-flex items-center text-[#1F45EC] text-sm font-medium">
           Read More
           <ArrowUpRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />

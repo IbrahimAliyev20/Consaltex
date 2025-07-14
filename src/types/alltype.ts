@@ -107,4 +107,34 @@ export interface SingleServiceResponse {
   message: string;
   lang: string;
   data: OurServicesType;
+} 
+
+
+
+export interface InformationPost {
+  title: string;
+  description: string;
+  slug: string;
+  image: string;
+  meta_title: string;
+  meta_description: string;
+  meta_keyword: string;
+}
+
+export interface InformationTag {
+  title: string;
+  slug: string;
+  informations: InformationPost[];
+}
+
+export interface AllInformationsResponse {
+  data: InformationTag[];
+}
+
+export interface SingleInformationResponse {
+  timestamp: string;
+  status: boolean;
+  message: string;
+  lang: string;
+  data: InformationPost;
 }

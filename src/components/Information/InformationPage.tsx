@@ -1,46 +1,91 @@
+// src/components/information/InformationPage.tsx
+
 "use client"; 
 
-import React, { useState } from 'react'; 
+import React, { useState, useMemo } from 'react'; 
 import { InfoCard } from '@/components/shared/Info-Card';
-import { blogPosts } from '@/lib/data/info-data'; 
+import { InformationTag } from '@/types/alltype';
+import { Button } from '@/components/ui/button';
 
-export default function InformationPage() {
+interface InformationPageProps {
+  tags: InformationTag[];
+}
+
+export default function InformationPage({ tags }: InformationPageProps) {
+  const [activeTag, setActiveTag] = useState<string>('all');
   const [visibleCount, setVisibleCount] = useState(8);
 
+  // Bütün məqalələri bir massivə yığırıq
+  const allPosts = useMemo(() => tags.flatMap(tag => tag.informations), [tags]);
+
+  // Aktiv taba görə göstəriləcək məqalələri filtrləyirik
+  const displayedPosts = useMemo(() => {
+    if (activeTag === 'all') {
+      return allPosts;
+    }
+    const activeTagData = tags.find(tag => tag.slug === activeTag);
+    return activeTagData ? activeTagData.informations : [];
+  }, [activeTag, tags, allPosts]);
+
   const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 8);
+    setVisibleCount(prevCount => prevCount + 8);
   };
+
+  const postsToShow = displayedPosts.slice(0, visibleCount);
 
   return (
     <div className='container mx-auto px-4 py-12 md:py-16'>
       <div>
         <h1 className="text-3xl md:text-4xl font-bold mb-8">Information and Updates</h1>
         
-        <div >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {blogPosts.slice(0, visibleCount).map((post) => (
-                <InfoCard
-                  key={post.slug}
-                  slug={post.slug} 
-                  imageSrc={post.imageSrc}
-                  readingTime={post.readingTime}
-                  date={post.date}
-                  title={post.title}
-                  description={post.description}
-                />
-              ))}
-            </div>
+        {/* Tablar Bölməsi */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          <Button
+            onClick={() => setActiveTag('all')}
+            variant={activeTag === 'all' ? 'default' : 'outline'}
+            className={`rounded-full ${activeTag === 'all' ? 'bg-blue-600 text-white' : ''}`}
+          >
+            All
+          </Button>
+          {tags.map(tag => (
+            <Button
+              key={tag.slug}
+              onClick={() => setActiveTag(tag.slug)}
+              variant={activeTag === tag.slug ? 'default' : 'outline'}
+              className={`rounded-full ${activeTag === tag.slug ? 'bg-blue-600 text-white' : ''}`}
+            >
+              {tag.title}
+            </Button>
+          ))}
+        </div>
 
-            {visibleCount < blogPosts.length && (
-              <div className="text-center mt-12">
-                <button
-                  onClick={handleLoadMore}
-                  className="   rounded-md font-semibold text-blue-700 transition-colors cursor-pointer"
-                >
-                  See More Information
-                </button>
-              </div>
-            )}
+        {/* Məqalə Kartları */}
+        <div >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {postsToShow.map((post) => (
+              <InfoCard
+                key={post.slug}
+                slug={post.slug} 
+                imageSrc={post.image}
+                // API-da bu məlumatlar yoxdur, müvəqqəti statik
+                readingTime={"9"}
+                date={"30.06.2025"}
+                title={post.title}
+                description={post.description}
+              />
+            ))}
+          </div>
+
+          {visibleCount < displayedPosts.length && (
+            <div className="text-center mt-12">
+              <button
+                onClick={handleLoadMore}
+                className="rounded-md font-semibold text-blue-700 transition-colors cursor-pointer"
+              >
+                See More Information
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
