@@ -1,20 +1,13 @@
-import ContactPage from '@/components/Contact/ContactPage'
+import ContactPage from '@/components/Contact/ContactSingle'
 import React from 'react'
 
-function Contact() {
+export default  function Contact() {
   return (
-    <div>
-      
-      <div className='container mx-auto px-4 py-6 md:py-14 '>
-      <div>
-          <h2 className=" text-[22px] md:text-4xl font-bold text-gray-900 mb-2 w-fit pb-4">
-            Contact Us
-          </h2>
-        </div>
+      <div  className='container mx-auto px-4 py-6 md:py-14'>
+        <h2 className='text-[22px] md:text-[32px] font-semibold text-gray-900 mb-6 w-fit '>
+        Contact Us
+        </h2>
         <ContactPage />
       </div>
-    </div>
   )
 }
-
-export default Contact

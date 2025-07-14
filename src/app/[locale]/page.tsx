@@ -3,10 +3,10 @@ import AboutUsSec from "@/components/Home/AboutUsSec";
 import { HeroSection } from "@/components/Home/HeroSec";
 import { VisionSection } from "@/components/Home/VisionSec";
 import React from "react";
-import ContactPage from "./contact/page";
 import ServiceSec from "@/components/Home/ServiceSec";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
+import ContactPage from "@/components/Contact/ContactSingle";
 
 export default function HomePage() {
   return (
@@ -54,7 +54,7 @@ export default function HomePage() {
 
 
       <div className="container mx-auto px-4 pt-6 md:pt-14">
-        <div>
+        <div className="pb-10">
           <h2 className="relative text-[22px] md:text-4xl font-bold text-gray-900 mb-2 w-fit pb-4">
             Contact Us
             <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-500 to-white"></span>

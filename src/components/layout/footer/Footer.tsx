@@ -89,10 +89,10 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-white mb-6">
               Contact
             </h3>
-            <div className="space-y-4 text-muted-foreground text-sm">
-              <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet,</p>
-              <p>+994 777 77 77</p>
-              <p>info.consaltex@gmail.com</p>
+            <div className="flex flex-col space-y-4 text-muted-foreground text-sm">
+              <a href="#" >Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet,</a>
+              <a href="tel:+994777777777">+994 777 77 77</a>
+              <a href="mailto:info.consaltex@gmail.com" >info.consaltex@gmail.com</a>
             </div>
           </div>
         </div>

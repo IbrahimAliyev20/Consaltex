@@ -42,7 +42,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0E0D0D] h-[71px] flex items-center">
-      <div className="container mx-auto px-4 flex items-center justify-between w-full">
+      <div className="container mx-auto  flex items-center justify-between w-full">
         <div className="flex items-center">
           <Link href="/">
             <Image
@@ -51,6 +51,7 @@ export function Navbar() {
               width={150}
               height={24}
               priority
+              className="w-[150px] h-[50px]"
             />
           </Link>
         </div>

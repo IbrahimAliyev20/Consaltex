@@ -36,42 +36,42 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background ">
-      <div className="container bg-[#f5fbfd] mx-auto px-2 md:px-[36px] py-[40px] rounded-lg">
+    <div >
+      <div className=" bg-[#f5fbfd] px-1 md:px-[36px] py-[40px] rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <div className="bg-card p-6 rounded-lg flex items-center space-x-4">
             <div className="p-3 rounded-full text-muted-foreground">
-              <Phone className="w-8 h-8" />
+              <Phone className="w-6 h-6 md:w-8 md:h-8" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Əlaqə telefon</p>
-              <p className="text-lg font-semibold text-foreground">
+              <a href="tel:+994707007070" className="text-[16px] md:text-lg font-semibold text-foreground">
                 +994 70 700 70 70
-              </p>
+              </a>
             </div>
           </div>
 
           <div className="bg-card p-6 rounded-lg flex items-center space-x-4">
             <div className="p-3 rounded-full text-muted-foreground">
-              <Mail className="w-8 h-8" />
+              <Mail className="w-6 h-6 md:w-8 md:h-8" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Email</p>
-              <p className="text-lg font-semibold text-foreground">
+              <a href="mailto:greencaspian@gmail.com" className="text-[16px] md:text-lg font-semibold text-foreground">
                 greencaspian@gmail.com
-              </p>
+              </a>
             </div>
           </div>
 
           <div className="bg-card p-6 rounded-lg flex items-center space-x-4">
             <div className="p-3 rounded-full text-muted-foreground">
-              <MapPin className="w-8 h-8" />
+              <MapPin className="w-6 h-6 md:w-8 md:h-8" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Ünvan</p>
-              <p className="text-lg font-semibold text-foreground">
+              <a href="#" className="text-[16px] md:text-lg font-semibold text-foreground">
                 Lorem ipsum dolor sit amet
-              </p>
+              </a>
             </div>
           </div>
         </div>
