@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 interface IFormData {
   name: string;
   email: string;
+  phone: string; // Added phone field
   message: string;
 }
 
@@ -23,6 +24,7 @@ export default function ContactPage() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "", 
       message: "",
     },
   });
@@ -36,7 +38,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div >
+    <div>
       <div className=" bg-[#f5fbfd] px-1 md:px-[36px] py-[40px] rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <div className="bg-card p-6 rounded-lg flex items-center space-x-4">
@@ -45,7 +47,10 @@ export default function ContactPage() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Əlaqə telefon</p>
-              <a href="tel:+994707007070" className="text-[16px] md:text-lg font-semibold text-foreground">
+              <a
+                href="tel:+994707007070"
+                className="text-[16px] md:text-lg font-semibold text-foreground"
+              >
                 +994 70 700 70 70
               </a>
             </div>
@@ -57,7 +62,10 @@ export default function ContactPage() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Email</p>
-              <a href="mailto:greencaspian@gmail.com" className="text-[16px] md:text-lg font-semibold text-foreground">
+              <a
+                href="mailto:greencaspian@gmail.com"
+                className="text-[16px] md:text-lg font-semibold text-foreground"
+              >
                 greencaspian@gmail.com
               </a>
             </div>
@@ -69,7 +77,10 @@ export default function ContactPage() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Ünvan</p>
-              <a href="#" className="text-[16px] md:text-lg font-semibold text-foreground">
+              <a
+                href="#"
+                className="text-[16px] md:text-lg font-semibold text-foreground"
+              >
                 Lorem ipsum dolor sit amet
               </a>
             </div>
@@ -122,7 +133,8 @@ export default function ContactPage() {
                     required: "Email ünvanı mütləqdir.",
                     pattern: {
                       value: /^\S+@\S+\.\S+$/,
-                      message: "Zəhmət olmasa, düzgün email ünvanı daxil edin.",
+                      message:
+                        "Zəhmət olmasa, düzgün email ünvanı daxil edin.",
                     },
                   })}
                 />
@@ -132,6 +144,33 @@ export default function ContactPage() {
                   </p>
                 )}
               </div>
+
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-muted-foreground mb-2"
+                >
+                  Telefon nömrəsi
+                </label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="Telefon nömrənizi daxil edin"
+                  {...register("phone", {
+                    required: "Telefon nömrəsi mütləqdir.",
+                    pattern: {
+                        value: /^\+?[0-9]{10,}$/, 
+                        message: "Zəhmət olmasa, düzgün telefon nömrəsi daxil edin.",
+                    }
+                  })}
+                />
+                {errors.phone && (
+                  <p className="text-sm text-red-500 mt-1">
+                    {errors.phone.message}
+                  </p>
+                )}
+              </div>
+
 
               <div>
                 <label
