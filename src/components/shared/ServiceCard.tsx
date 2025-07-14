@@ -25,9 +25,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         />
       </div>
 
-      <div >
+      <div>
         <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-        <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.description.substring(0, 150) + '...' }} />
+        <div className="text-gray-600 leading-relaxed line-clamp-6" dangerouslySetInnerHTML={{ __html: service.description}} />
       </div>
 
       <div className="hidden md:flex flex-shrink-0 ml-0 md:ml-6 mt-4 md:mt-0">
