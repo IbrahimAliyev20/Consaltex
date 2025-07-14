@@ -61,7 +61,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
 
         <SheetContent
           side="left"
-          className="w-[70%] bg-[#0E0D0D] text-white p-0 border-r border-gray-700 mt-[71px] h-[calc(100vh-71px)]"
+          className="w-[70%] bg-[#0E0D0D] text-white p-0 border-r border-gray-700 mt-[71px] h-[calc(fit-content-71px)]"
         >
           <div className="flex flex-col h-full">
             <div className="flex-1 p-6 pt-12 overflow-y-auto">
