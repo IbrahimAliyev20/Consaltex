@@ -10,7 +10,6 @@ export interface Service {
   title: string;
   description: string; 
   image: string; 
-
   pageTitle?: string;
   longDescription?: string;
   detailImages?: string[];

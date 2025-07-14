@@ -6,27 +6,22 @@ import { notFound } from "next/navigation";
 import { CheckIcon, ChevronRight } from "lucide-react";
 
 interface ServiceSinglePageProps {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return services.map((service) => ({
-    slug: service.slug,
-  }));
-}
-
-const ServiceSinglePage: React.FC<ServiceSinglePageProps> = async ({ params }) => {
-  const resolvedParams = await params;
-  const service = services.find((s) => s.slug === resolvedParams.slug);
+export default async function ServiceSinglePage({
+  params,
+}: ServiceSinglePageProps) {
+  const { slug } = await params;
+  const service = services.find((p) => p.slug === slug);
 
   if (!service) {
     notFound();
   }
 
-  const descriptionParagraphs =
-    service.longDescription?.split("\n").filter((p) => p.trim() !== "") || [];
+  const similarPosts = services
+    .filter((p) => p.slug !== service.slug)
+    .slice(0, 4);
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
@@ -48,9 +43,11 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = async ({ params }) =
               {service.pageTitle || service.title}
             </h1>
             <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
-              {descriptionParagraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
+              {service.longDescription
+                ?.split("\n\n")
+                .map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
             </div>
           </div>
 
@@ -61,27 +58,24 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = async ({ params }) =
                   <Image
                     src={service.detailImages[0]}
                     alt={`${service.title} main image`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <div className="col-span-1 row-span-1 relative rounded-lg overflow-hidden shadow-md">
                   <Image
                     src={service.detailImages[1]}
                     alt={`${service.title} detail image 2`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <div className="col-span-1 row-span-1 relative rounded-lg overflow-hidden shadow-md">
                   <Image
                     src={service.detailImages[2]}
                     alt={`${service.title} detail image 3`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
               </div>
@@ -111,6 +105,4 @@ const ServiceSinglePage: React.FC<ServiceSinglePageProps> = async ({ params }) =
       </main>
     </div>
   );
-};
-
-export default ServiceSinglePage;
+}

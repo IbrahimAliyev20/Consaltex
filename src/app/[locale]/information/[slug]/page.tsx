@@ -4,29 +4,23 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { InfoCard } from '@/components/shared/Info-Card';
 import { Calendar, Clock } from 'lucide-react';
-import { blogPosts } from '@/lib/data/info-data'; 
+import { blogPosts } from '@/lib/data/info-data';
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
 
 interface InfoSinglePageProps {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: Promise<{slug: string; }>;
 }
 
-const InfoSinglePage: React.FC<InfoSinglePageProps> = async ({ params }) => {
-  const resolvedParams = await params;
-  const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
+export default async function InfoSinglePage({ params }: InfoSinglePageProps){
+  const { slug } =  await params;
+
+  const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
   }
 
-  const similarPosts = blogPosts.filter(p => p.slug !== resolvedParams.slug).slice(0, 4);
+  const similarPosts = blogPosts.filter(p => p.slug !== post.slug).slice(0, 4);
 
   return (
     <div className="bg-white">
@@ -63,9 +57,6 @@ const InfoSinglePage: React.FC<InfoSinglePageProps> = async ({ params }) => {
                     <span>{post.date}</span>
                 </div>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              {post.title}
-            </h1>
             <div className="prose lg:prose-lg max-w-none text-gray-700 leading-relaxed">
               <p>{post.content}</p>
             </div>
@@ -74,10 +65,10 @@ const InfoSinglePage: React.FC<InfoSinglePageProps> = async ({ params }) => {
 
         <section className="mt-16 md:mt-24 border-t pt-12">
             <div className="flex justify-between items-center mb-8">
-                 <h2 className="text-2xl md:text-3xl font-bold">Similar Information</h2>
-                 <Link href="/information" className="text-blue-600 font-semibold hover:underline">
-                   See More
-                 </Link>
+                <h2 className="text-2xl md:text-3xl font-bold">Similar Information</h2>
+                <Link href="/information" className="text-blue-600 font-semibold hover:underline">
+                  See More
+                </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {similarPosts.map(p => (
@@ -97,5 +88,3 @@ const InfoSinglePage: React.FC<InfoSinglePageProps> = async ({ params }) => {
     </div>
   );
 };
-
-export default InfoSinglePage;

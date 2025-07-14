@@ -4,9 +4,7 @@ import React from 'react'
 function Information() {
   return (
     <div>
-      
       <InformationPage />
-
     </div>
   )
 }
