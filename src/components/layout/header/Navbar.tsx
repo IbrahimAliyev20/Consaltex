@@ -41,7 +41,7 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0E0D0D] h-[71px] flex items-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0E0D0D] h-[81px] flex items-center">
       <div className="container mx-auto  flex items-center justify-between w-full">
         <div className="flex items-center">
           <Link href="/">

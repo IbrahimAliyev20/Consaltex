@@ -1,4 +1,3 @@
-// app/page.tsx
 import AboutUsSec from "@/components/Home/AboutUsSec";
 import { HeroSection } from "@/components/Home/HeroSec";
 import { VisionSection } from "@/components/Home/VisionSec";
