@@ -2,6 +2,7 @@ import React from "react";
 import { Clock, CalendarDays, ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 interface InfoCardProps {
   imageSrc: string;
@@ -12,14 +13,9 @@ interface InfoCardProps {
   slug: string;
 }
 
-export function InfoCard({
-  imageSrc,
-  readingTime,
-  date,
-  title,
-  description,
-  slug,
-}: InfoCardProps) {
+export default async function InfoCard({imageSrc,readingTime,date,title,description,slug,}: InfoCardProps) {
+  const t = await getTranslations("Information");
+
   return (
     <Link
       href={`/information/${slug}`}
@@ -35,7 +31,7 @@ export function InfoCard({
       <div className="py-4 flex flex-col flex-grow">
         <div className="flex items-center text-muted-foreground text-sm mb-2">
           <Clock className="w-4 h-4 mr-1" />
-          <span>{readingTime} min reading time</span>
+          <span>{readingTime} {t("reading_time")}</span>
           <CalendarDays className="w-4 h-4 ml-4 mr-1" />
           <span>{date}</span>
         </div>
@@ -45,7 +41,7 @@ export function InfoCard({
           dangerouslySetInnerHTML={{ __html: description || "" }}
         />
         <div className="inline-flex items-center text-[#1F45EC] text-sm font-medium">
-          Read More
+          {t("see_more")}
           <ArrowUpRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
       </div>

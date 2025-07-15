@@ -1,10 +1,11 @@
 
 "use client"; 
 
-import React, { useState, useMemo } from 'react'; 
+import React, { useState, useMemo, use } from 'react'; 
 import { InfoCard } from '@/components/shared/Info-Card';
 import { InformationTag } from '@/types/alltype';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 interface InformationPageProps {
   tags: InformationTag[];
@@ -13,6 +14,7 @@ interface InformationPageProps {
 export default function InformationPage({ tags }: InformationPageProps) {
   const [activeTag, setActiveTag] = useState<string>('all');
   const [visibleCount, setVisibleCount] = useState(8);
+  const t = useTranslations('Information');
 
   const allPosts = useMemo(() => tags.flatMap(tag => tag.informations), [tags]);
 
@@ -33,8 +35,8 @@ export default function InformationPage({ tags }: InformationPageProps) {
   return (
     <div className='container mx-auto px-4 py-12 md:py-16'>
       <div>
-        <h1 className="text-3xl md:text-4xl font-bold mb-8">Information and Updates</h1>
-        
+        <h1 className="text-3xl md:text-4xl font-bold mb-8">{t('update_info')}</h1>
+
         {/* Tablar Bölməs */}
         <div className="flex flex-wrap gap-2 mb-8">
           <Button
@@ -77,7 +79,7 @@ export default function InformationPage({ tags }: InformationPageProps) {
                 onClick={handleLoadMore}
                 className="rounded-md font-semibold text-blue-700 transition-colors cursor-pointer"
               >
-                See More Information
+                {t('See_More_Information')}
               </button>
             </div>
           )}

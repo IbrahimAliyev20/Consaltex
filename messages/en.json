@@ -13,7 +13,9 @@
     "services": "Services",
     "information": "Information",
     "contact": "Contact",
-    "copyright": "© {year} Markup. All rights reserved."
+    "copyright": "© {year} Markup. All rights reserved.",
+    "followUsOn": "Follow us on",
+    "navigation": "Navigation"
   },
   "SecTitle": {
     "OurServices": "Our Services",
@@ -25,7 +27,10 @@
     "reading_time": "Reading Time",
     "description": "Information Section",
     "similar_information": "Similar Information",
-    "see_more": "See More"
+    "see_more": "See More",
+    "update_info": "Information and Updates",
+    "See_More_Information": "See More Information"
+
   },
    "Contact":{
     "Phone":"Phone",
@@ -52,5 +57,8 @@
     "success_message": "Your message has been sent successfully!",
     "error_message": "An error occurred while sending the message.",
     "unknown_error": "An unknown server error occurred."
-  } 
+  } ,
+    "Service":{
+    "title": "Innovative Digital Health Solutions"
+  }
 }

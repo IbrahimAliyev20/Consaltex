@@ -2,9 +2,11 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getAbout } from "@/lib/about";
+import { getTranslations } from "next-intl/server";
 
 export default async function AboutUsSec() {
-  
+
+    const t = await getTranslations()
     const about = await getAbout();
   
   
@@ -25,7 +27,7 @@ export default async function AboutUsSec() {
             </p>
           </div>
           <Button className=" w-[161px] h-[44px] bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md flex items-center gap-2 transition-colors">
-            See more
+            {t("Information.see_more")}
             <ArrowRight className="w-4 h-4" />
           </Button>
         </div>

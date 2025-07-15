@@ -9,13 +9,11 @@ type HeroSliderProps = {
 };
 
 export function HeroSection({ heroslider }: HeroSliderProps) {
-  // DƏYİŞİKLİK 1: Bütün Hook-lar komponentin ən başında çağırılır.
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    // useEffect-in öz daxilində şərt qoymaq təhlükəsizdir.
     if (!heroslider || heroslider.length === 0) {
-        return; // Əgər slayd yoxdursa, heç nə etmə.
+        return; 
     }
 
     const timer = setInterval(() => {
@@ -23,9 +21,8 @@ export function HeroSection({ heroslider }: HeroSliderProps) {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [heroslider]); // Asılılığı heroslider.length yerinə heroslider etmək daha doğrudur.
+  }, [heroslider]); 
 
-  // DƏYİŞİKLİK 2: Şərtli return bütün Hook-lardan sonra yerləşdirilib.
   if (!heroslider || heroslider.length === 0) {
     return (
       <section className="relative w-full h-[580px] md:min-h-screen bg-gray-300"></section>
@@ -38,7 +35,6 @@ export function HeroSection({ heroslider }: HeroSliderProps) {
 
   const activeSlideData = heroslider[currentSlide];
 
-  // DİQQƏT: activeSlideData-nın mövcudluğunu yoxlamaq daha təhlükəsizdir.
   if (!activeSlideData) {
     return (
         <section className="relative w-full h-[580px] md:min-h-screen bg-gray-300"></section>

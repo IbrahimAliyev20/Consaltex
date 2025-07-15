@@ -38,7 +38,7 @@ export function FooterMain({contact, socialLinks}: ContactTypeProps) {
                 height={88}
               />    
             </div>
-            <p className="text-white text-sm">Follow us on</p>
+            <p className="text-white text-sm">{t('followUsOn')}</p>
             <div className="flex items-center space-x-4">
               {" "}
               {socialLinks.map((link) => (
@@ -63,7 +63,7 @@ export function FooterMain({contact, socialLinks}: ContactTypeProps) {
           <div></div>
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">
-              Navigation
+              {t("navigation")}
             </h3>
             <nav>
               <ul className="space-y-4">
@@ -90,7 +90,7 @@ export function FooterMain({contact, socialLinks}: ContactTypeProps) {
 
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">
-              Contact
+              {t("contact")}
             </h3>
             <div className="flex flex-col space-y-4 text-muted-foreground text-sm">
               <a href="#" >{contact.address}</a>

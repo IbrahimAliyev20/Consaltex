@@ -13,7 +13,9 @@
     "services": "Xidmətlər",
     "information": "Məlumat",
     "contact": "Əlaqə",
-    "copyright": "© {year} Markup. Bütün hüquqlar qorunur."
+    "copyright": "© {year} Markup. Bütün hüquqlar qorunur.",
+    "followUsOn": "Bizi izləyin",
+    "navigation": "Naviqasiya"
   },
   "SecTitle": {
     "OurServices": "Xidmətlər",
@@ -25,7 +27,9 @@
     "reading_time": "Oxuma müddəti",
     "description": "Məlumat bölməsi",
     "similar_information": "Oxşar məlumatlar",
-    "see_more": "Daha çox gör"
+    "see_more": "Daha çox gör",
+    "update_info":"Məlumat və Yeniləmələr",
+    "See_More_Information": "Daha çox məlumat gör"
   },
   "Contact": {
     "Phone": "Əlaqə telefon",
@@ -52,5 +56,9 @@
     "success_message": "Mesajınız uğurla göndərildi!",
     "error_message": "Mesaj göndərilərkən xəta baş verdi.",
     "unknown_error": "Naməlum server xətası baş verdi."
+  },
+    "Service":{
+    "title": "İnnovativ Rəqəmsal Sağlamlıq Həlləri"
   }
+
 }
