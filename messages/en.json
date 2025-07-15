@@ -14,5 +14,43 @@
     "information": "Information",
     "contact": "Contact",
     "copyright": "© {year} Markup. All rights reserved."
-  }
+  },
+  "SecTitle": {
+    "OurServices": "Our Services",
+    "AboutUs": "About Us",
+    "ContactUs": "Contact Us",
+    "SeeAllServices": "See All Services"
+},
+ "Information": {
+    "reading_time": "Reading Time",
+    "description": "Information Section",
+    "similar_information": "Similar Information",
+    "see_more": "See More"
+  },
+   "Contact":{
+    "Phone":"Phone",
+    "Email":"Email",
+    "Email-placeholder":"Enter your email address",
+    "Address":"Address",
+    "Contactus":"Contact Us",
+    "name_surname":"Name Surname",
+    "name_surname_placeholder":"Enter your full name",
+    "phone_number":"Phone Number",
+    "phone_number_placeholder":"Enter your phone number",
+    "message":"Your Message",
+    "message-placeholder":"Enter your message",
+     "required_name": "Name and surname are required.",
+    "minlength_name": "Name must be at least 2 characters long.",
+    "required_email": "Email address is required.",
+    "invalid_email": "Please enter a valid email address.",
+    "required_phone": "Phone number is required.",
+    "invalid_phone": "Please enter a valid phone number.",
+    "required_message": "Message field cannot be empty.",
+    "minlength_message": "Your message must be at least 10 characters long.",
+    "sending": "Sending...",
+    "send_message": "Send your message",
+    "success_message": "Your message has been sent successfully!",
+    "error_message": "An error occurred while sending the message.",
+    "unknown_error": "An unknown server error occurred."
+  } 
 }

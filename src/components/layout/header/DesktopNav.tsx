@@ -11,7 +11,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-// Props üçün tipləri təyin edirik
 interface NavLink {
   href: string;
   translationKey: string;

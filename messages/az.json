@@ -14,5 +14,43 @@
     "information": "Məlumat",
     "contact": "Əlaqə",
     "copyright": "© {year} Markup. Bütün hüquqlar qorunur."
+  },
+  "SecTitle": {
+    "OurServices": "Xidmətlər",
+    "AboutUs": "Haqqımızda",
+    "ContactUs": "Bizimlə əlaqə",
+    "SeeAllServices": "Bütün xidmətlər"
+  },
+  "Information": {
+    "reading_time": "Oxuma müddəti",
+    "description": "Məlumat bölməsi",
+    "similar_information": "Oxşar məlumatlar",
+    "see_more": "Daha çox gör"
+  },
+  "Contact": {
+    "Phone": "Əlaqə telefon",
+    "Email": "Email",
+    "Email-placeholder": "Email ünvanınızı daxil edin",
+    "Address": "Ünvan",
+    "Contactus": "Bizimlə Əlaqə Saxlayın",
+    "name_surname": "Ad Soyad",
+    "name_surname_placeholder": "Ad və soyadınızı daxil edin",
+    "phone_number": "Telefon nömrəsi",
+    "phone_number_placeholder": "Telefon nömrənizi daxil edin",
+    "message": "Mesajınız",
+    "message-placeholder": "Mesajınızı daxil edin",
+    "required_name": "Ad və soyad mütləqdir.",
+    "minlength_name": "Ad ən azı 2 hərfdən ibarət olmalıdır.",
+    "required_email": "Email ünvanı mütləqdir.",
+    "invalid_email": "Zəhmət olmasa, düzgün email ünvanı daxil edin.",
+    "required_phone": "Telefon nömrəsi mütləqdir.",
+    "invalid_phone": "Zəhmət olmasa, düzgün telefon nömrəsi daxil edin.",
+    "required_message": "Mesaj sahəsi boş buraxıla bilməz.",
+    "minlength_message": "Mesajınız ən azı 10 simvoldan ibarət olmalıdır.",
+    "sending": "Göndərilir...",
+    "send_message": "Mesajınızı göndərin",
+    "success_message": "Mesajınız uğurla göndərildi!",
+    "error_message": "Mesaj göndərilərkən xəta baş verdi.",
+    "unknown_error": "Naməlum server xətası baş verdi."
   }
 }

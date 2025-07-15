@@ -14,5 +14,43 @@
     "information": "Информация",
     "contact": "Контакты",
     "copyright": "© {year} Markup. Все права защищены."
+  },
+  "SecTitle": {
+    "OurServices": "Наши услуги",
+    "AboutUs": "О нас",
+    "ContactUs": "Связаться с нами",
+    "SeeAllServices": "Смотреть все услуги"
+},
+ "Information": {
+    "reading_time": "Время чтения",
+    "description": "Информационный раздел",
+    "similar_information": "Похожие материалы",
+    "see_more": "Смотреть больше"
+  },
+  "Contact":{
+    "Phone":"Телефон",
+    "Email":"Электронная почта",
+    "Email-placeholder":"Введите адрес электронной почты",
+    "Address":"Адрес",
+    "Contactus":"Связаться с нами",
+    "name_surname":"ФИО",
+    "name_surname_placeholder":"Введите ФИО",
+    "phone_number":"Номер телефона",
+    "phone_number_placeholder":"Введите номер телефона",
+    "message":"Сообщение",
+    "message-placeholder":"Введите сообщение",
+     "required_name": "Имя и фамилия обязательны.",
+    "minlength_name": "Имя должно содержать не менее 2 букв.",
+    "required_email": "Адрес электронной почты обязателен.",
+    "invalid_email": "Пожалуйста, введите корректный адрес электронной почты.",
+    "required_phone": "Номер телефона обязателен.",
+    "invalid_phone": "Пожалуйста, введите корректный номер телефона.",
+    "required_message": "Поле сообщения не может быть пустым.",
+    "minlength_message": "Ваше сообщение должно содержать не менее 10 символов.",
+    "sending": "Отправка...",
+    "send_message": "Отправить сообщение",
+    "success_message": "Ваше сообщение успешно отправлено!",
+    "error_message": "Произошла ошибка при отправке сообщения.",
+    "unknown_error": "Произошла неизвестная ошибка сервера."
   }
 }

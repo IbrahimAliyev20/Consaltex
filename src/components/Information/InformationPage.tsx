@@ -1,4 +1,3 @@
-// src/components/information/InformationPage.tsx
 
 "use client"; 
 
@@ -15,10 +14,8 @@ export default function InformationPage({ tags }: InformationPageProps) {
   const [activeTag, setActiveTag] = useState<string>('all');
   const [visibleCount, setVisibleCount] = useState(8);
 
-  // Bütün məqalələri bir massivə yığırıq
   const allPosts = useMemo(() => tags.flatMap(tag => tag.informations), [tags]);
 
-  // Aktiv taba görə göstəriləcək məqalələri filtrləyirik
   const displayedPosts = useMemo(() => {
     if (activeTag === 'all') {
       return allPosts;
@@ -38,7 +35,7 @@ export default function InformationPage({ tags }: InformationPageProps) {
       <div>
         <h1 className="text-3xl md:text-4xl font-bold mb-8">Information and Updates</h1>
         
-        {/* Tablar Bölməsi */}
+        {/* Tablar Bölməs */}
         <div className="flex flex-wrap gap-2 mb-8">
           <Button
             onClick={() => setActiveTag('all')}
@@ -59,7 +56,6 @@ export default function InformationPage({ tags }: InformationPageProps) {
           ))}
         </div>
 
-        {/* Məqalə Kartları */}
         <div >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {postsToShow.map((post) => (
@@ -67,9 +63,8 @@ export default function InformationPage({ tags }: InformationPageProps) {
                 key={post.slug}
                 slug={post.slug} 
                 imageSrc={post.image}
-                // API-da bu məlumatlar yoxdur, müvəqqəti statik
-                readingTime={"9"}
-                date={"30.06.2025"}
+                readingTime={post.reading_time}
+                date={post.created_at}
                 title={post.title}
                 description={post.description}
               />

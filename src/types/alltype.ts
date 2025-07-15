@@ -119,6 +119,8 @@ export interface InformationPost {
   meta_title: string;
   meta_description: string;
   meta_keyword: string;
+  reading_time: string;
+  created_at: string;
 }
 
 export interface InformationTag {
@@ -137,4 +139,10 @@ export interface SingleInformationResponse {
   message: string;
   lang: string;
   data: InformationPost;
+}
+export interface MetaTagsType {
+  title: string;
+  meta_title: string;
+  meta_description: string;
+  meta_keywords: string;
 }

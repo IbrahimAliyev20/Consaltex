@@ -1,11 +1,12 @@
-
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { InfoCard } from '@/components/shared/Info-Card';
 import { Calendar, Clock } from 'lucide-react';
 import { getInformationBySlug, getInformations } from '@/lib/information';
+import { Link } from '@/i18n/navigation';
+import { get } from 'http';
+import { getTranslations } from 'next-intl/server';
 
 
 interface InfoSinglePageProps {
@@ -13,6 +14,8 @@ interface InfoSinglePageProps {
 }
 
 export default async function InfoSinglePage({ params }: InfoSinglePageProps) {
+  const t = await getTranslations()
+
   const { slug } = await params;
 
   const [post, allTags] = await Promise.all([
@@ -33,7 +36,7 @@ export default async function InfoSinglePage({ params }: InfoSinglePageProps) {
         <article>
           <header className="mb-8 flex flex-col gap-8">
             <nav className="text-sm text-gray-500">
-              <Link href="/information" className="hover:text-blue-600">Information</Link>
+              <Link href="/information" className="hover:text-blue-600">{t('Navbar.information')}</Link>
               <span className="mx-2">/</span>
               <span>{post.title}</span>
             </nav>
@@ -55,13 +58,11 @@ export default async function InfoSinglePage({ params }: InfoSinglePageProps) {
             <div className="flex items-center text-sm text-gray-500 mb-4 space-x-6">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
-                {/* Reading time API-da yoxdur, müvəqqəti olaraq statik saxlanılır */}
-                <span>9 min reading time</span>
+                <span>{post.reading_time} {t('Information.reading_time')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                {/* Date API-da yoxdur, müvəqqəti olaraq statik saxlanılır */}
-                <span>30.06.2025</span>
+                <span>{post.created_at}</span>
               </div>
             </div>
             <div 
@@ -73,9 +74,9 @@ export default async function InfoSinglePage({ params }: InfoSinglePageProps) {
 
         <section className="mt-16 md:mt-24 border-t pt-12">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold">Similar Information</h2>
+            <h2 className="text-2xl md:text-3xl font-bold">{t('Information.similar_information')}</h2>
             <Link href="/information" className="text-blue-600 font-semibold hover:underline">
-              See More
+              {t('Information.see_more')}
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

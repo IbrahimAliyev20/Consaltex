@@ -1,9 +1,9 @@
 
-import Link from 'next/link'; 
 import React from 'react';
 import Image from 'next/image';
 import { OurServicesType } from '@/types/alltype'; 
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 
 interface ServiceCardProps {
   service: OurServicesType; 

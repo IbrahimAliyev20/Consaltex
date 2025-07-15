@@ -1,10 +1,10 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, ChevronRight } from "lucide-react"; 
 import { getOurServiceSlug, } from "@/lib/our-services"; 
+import { Link } from "@/i18n/navigation";
 
 
 interface ServiceSinglePageProps {

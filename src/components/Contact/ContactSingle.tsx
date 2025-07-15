@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ContactType } from "@/types/alltype";
 import { submitContactForm } from "@/lib/contact-form";
+import { useTranslations } from "next-intl";
 
 interface IFormData {
   name: string;
@@ -25,6 +26,7 @@ export default function ContactPage({ contact }: ContactTypeProps) {
     message: string;
     type: "success" | "error" | "";
   }>({ message: "", type: "" });
+  const t = useTranslations("Contact"); // This hook loads translations from the "Contact" namespace
 
   const {
     register,
@@ -55,19 +57,18 @@ export default function ContactPage({ contact }: ContactTypeProps) {
 
       if (response.status) {
         setFormStatus({
-          message: "Your message has been sent successfully!",
+          message: t("success_message"), // Translated success message
           type: "success",
         });
         reset();
       } else {
         setFormStatus({
-          message:
-            response.message || "An error occurred while sending the message.",
+          message: response.message || t("error_message"), // Translated error message
           type: "error",
         });
       }
     } catch (error) {
-      let errorMessage = "An unknown server error occurred.";
+      let errorMessage = t("unknown_error"); // Translated unknown error message
       if (error instanceof Error) {
         errorMessage = error.message;
       }
@@ -84,7 +85,7 @@ export default function ContactPage({ contact }: ContactTypeProps) {
               <Phone className="w-6 h-6 md:w-8 md:h-8" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Əlaqə telefon</p>
+              <p className="text-sm text-muted-foreground">{t("Phone")}</p>
               <a
                 href={`tel:${contact.phone}`}
                 className="text-[16px] md:text-lg font-semibold text-foreground"
@@ -98,7 +99,7 @@ export default function ContactPage({ contact }: ContactTypeProps) {
               <Mail className="w-6 h-6 md:w-8 md:h-8" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Email</p>
+              <p className="text-sm text-muted-foreground">{t("Email")}</p>
               <a
                 href={`mailto:${contact.email}`}
                 className="text-[16px] md:text-lg font-semibold text-foreground"
@@ -112,7 +113,7 @@ export default function ContactPage({ contact }: ContactTypeProps) {
               <MapPin className="w-6 h-6 md:w-8 md:h-8" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Ünvan</p>
+              <p className="text-sm text-muted-foreground">{t("Address")}</p>
               <a
                 href="#"
                 className="text-[16px] md:text-lg font-semibold text-foreground"
@@ -125,7 +126,7 @@ export default function ContactPage({ contact }: ContactTypeProps) {
 
         <div className="bg-card p-6 md:p-8 rounded-lg">
           <h2 className="text-[20px] md:text-[32px] font-medium text-foreground mb-8">
-            Bizimlə Əlaqə Saxlayın
+            {t("Contactus")}
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-20">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -134,16 +135,16 @@ export default function ContactPage({ contact }: ContactTypeProps) {
                   htmlFor="name"
                   className="block text-sm font-medium text-muted-foreground mb-2"
                 >
-                  Ad, soyad
+                  {t("name_surname")}
                 </label>
                 <Input
                   id="name"
-                  placeholder="Ad və soyadınızı daxil edin"
+                  placeholder={t("name_surname_placeholder")}
                   {...register("name", {
-                    required: "Ad və soyad mütləqdir.",
+                    required: t("required_name"), // Translated error message
                     minLength: {
                       value: 2,
-                      message: "Ad ən azı 2 hərfdən ibarət olmalıdır.",
+                      message: t("minlength_name"), // Translated error message
                     },
                   })}
                 />
@@ -163,12 +164,12 @@ export default function ContactPage({ contact }: ContactTypeProps) {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Email adresinizi daxil edin"
+                  placeholder={t("Email-placeholder")}
                   {...register("email", {
-                    required: "Email ünvanı mütləqdir.",
+                    required: t("required_email"), // Translated error message
                     pattern: {
                       value: /^\S+@\S+\.\S+$/,
-                      message: "Zəhmət olmasa, düzgün email ünvanı daxil edin.",
+                      message: t("invalid_email"), // Translated error message
                     },
                   })}
                 />
@@ -183,18 +184,17 @@ export default function ContactPage({ contact }: ContactTypeProps) {
                   htmlFor="phone"
                   className="block text-sm font-medium text-muted-foreground mb-2"
                 >
-                  Telefon nömrəsi
+                  {t("phone_number")}
                 </label>
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="Telefon nömrənizi daxil edin"
+                  placeholder={t("phone_number_placeholder")}
                   {...register("phone", {
-                    required: "Telefon nömrəsi mütləqdir.",
+                    required: t("required_phone"), // Translated error message
                     pattern: {
                       value: /^\+?[0-9]{10,}$/,
-                      message:
-                        "Zəhmət olmasa, düzgün telefon nömrəsi daxil edin.",
+                      message: t("invalid_phone"), // Translated error message
                     },
                   })}
                 />
@@ -209,19 +209,18 @@ export default function ContactPage({ contact }: ContactTypeProps) {
                   htmlFor="message"
                   className="block text-sm font-medium text-muted-foreground mb-2"
                 >
-                  Mesajınız
+                  {t("message")}
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Mesajınızı daxil edin"
+                  placeholder={t("message-placeholder")}
                   rows={5}
                   className="resize-none h-30"
                   {...register("message", {
-                    required: "Mesaj sahəsi boş buraxıla bilməz.",
+                    required: t("required_message"), // Translated error message
                     minLength: {
                       value: 10,
-                      message:
-                        "Mesajınız ən azı 10 simvoldan ibarət olmalıdır.",
+                      message: t("minlength_message"), // Translated error message
                     },
                   })}
                 />
@@ -238,7 +237,7 @@ export default function ContactPage({ contact }: ContactTypeProps) {
                 disabled={isSubmitting}
                 className="w-full bg-[#3674B5] text-white"
               >
-                {isSubmitting ? "Göndərilir..." : "Mesajınızı göndərin"}
+                {isSubmitting ? t("sending") : t("send_message")}
                 <ArrowUpRight className="ml-2 h-4 w-4" />
               </Button>
 
