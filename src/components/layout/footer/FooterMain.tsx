@@ -1,11 +1,10 @@
-"use client"; 
+"use client";
 
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import Image from "next/image";
 import { ContactType, SocialMediaType } from "@/types/alltype";
-
 
 const navLinkData = [
   { href: "/", key: "home" },
@@ -17,16 +16,17 @@ const navLinkData = [
 
 type ContactTypeProps = {
   contact: ContactType;
-  socialLinks: SocialMediaType[]
+  socialLinks: SocialMediaType[];
 };
 
-export function FooterMain({contact, socialLinks}: ContactTypeProps) {
+export function FooterMain({ contact, socialLinks }: ContactTypeProps) {
   const t = useTranslations("Footer");
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-black border-t border-border">
+      {/* Footer-in yuxarı hissəsi (dəyişdirilməyib) */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-16">
           <div className="flex flex-col items-start space-y-6">
@@ -36,11 +36,10 @@ export function FooterMain({contact, socialLinks}: ContactTypeProps) {
                 alt="Consaltex Logo"
                 width={175}
                 height={88}
-              />    
+              />
             </div>
-            <p className="text-white text-sm">{t('followUsOn')}</p>
+            <p className="text-white text-sm">{t("followUsOn")}</p>
             <div className="flex items-center space-x-4">
-              {" "}
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
@@ -67,7 +66,6 @@ export function FooterMain({contact, socialLinks}: ContactTypeProps) {
             </h3>
             <nav>
               <ul className="space-y-4">
-                {" "}
                 {navLinkData.map((link) => {
                   const isActive = pathname === link.href;
                   return (
@@ -87,38 +85,55 @@ export function FooterMain({contact, socialLinks}: ContactTypeProps) {
               </ul>
             </nav>
           </div>
-
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">
               {t("contact")}
             </h3>
             <div className="flex flex-col space-y-4 text-muted-foreground text-sm">
-              <a href="#" >{contact.address}</a>
-              <a href="tel:+994777777777">{contact.phone}</a>
-              <a href="mailto:info.consaltex@gmail.com" >{contact.email}</a>
+              <a href="#">{contact.address}</a>
+              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-border py-4">
-        <div className="container mx-auto px-4 text-center text-xs text-muted-foreground flex items-center justify-center space-x-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-copyright"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <path d="M14.5 9a3.5 3.5 0 1 0 0 6h1" />
-          </svg>
-          <p className="text-white">{t("copyright", { year: currentYear })}</p>
+      {/* --- Footer-in aşağı hissəsi (DƏYİŞDİRİLMİŞ) --- */}
+      <div className="border-t border-border py-8">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-2">
+          <div className="flex items-center justify-center space-x-2 text-xs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-copyright"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M14.5 9a3.5 3.5 0 1 0 0 6h1" />
+            </svg>
+            <p className="text-white">{t("copyright", { year: currentYear })}</p>
+          </div>
+
+          <div className="text-white text-[10px] uppercase tracking-widest text-center">
+            {t.rich("madeBy", {
+              markupLink: (chunks) => (
+                <Link
+                  href="https://markup.az/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pb-1 font-semibold bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 bg-no-repeat [background-size:100%_2px] bg-bottom hover:text-gray-300 transition-colors"
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </div>
         </div>
       </div>
     </footer>

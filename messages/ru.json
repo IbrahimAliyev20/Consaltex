@@ -13,9 +13,10 @@
     "services": "Услуги",
     "information": "Информация",
     "contact": "Контакты",
-    "copyright": "© {year} Markup. Все права защищены.",
+    "copyright": "© {year} . Все права защищены.",
     "followUsOn": "Подписывайтесь на нас",
-    "navigation": "Навигация"
+    "navigation": "Навигация",
+    "madeBy": "Веб-сайт разработан <markupLink>Markup Agency</markupLink>"
   },
   "SecTitle": {
     "OurServices": "Наши услуги",

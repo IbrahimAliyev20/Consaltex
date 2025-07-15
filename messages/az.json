@@ -13,9 +13,10 @@
     "services": "Xidmətlər",
     "information": "Məlumat",
     "contact": "Əlaqə",
-    "copyright": "© {year} Markup. Bütün hüquqlar qorunur.",
+    "copyright": "© {year} . Bütün hüquqlar qorunur.",
     "followUsOn": "Bizi izləyin",
-    "navigation": "Naviqasiya"
+    "navigation": "Naviqasiya",
+    "madeBy": "Veb sayt <markupLink>Markup Agency</markupLink> tərəfindən hazırlanıb"
   },
   "SecTitle": {
     "OurServices": "Xidmətlər",
