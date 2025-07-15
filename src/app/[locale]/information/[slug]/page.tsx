@@ -5,7 +5,6 @@ import { InfoCard } from '@/components/shared/Info-Card';
 import { Calendar, Clock } from 'lucide-react';
 import { getInformationBySlug, getInformations } from '@/lib/information';
 import { Link } from '@/i18n/navigation';
-import { get } from 'http';
 import { getTranslations } from 'next-intl/server';
 
 
