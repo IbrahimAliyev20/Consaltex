@@ -32,7 +32,7 @@ export default async function AboutUsSec() {
           </Button>
         </div>
 
-        <div className="flex flex-col w-full h-[552px] gap-6">
+        <div className="flex flex-col w-full h-[300px] md:h-[552px] gap-2 md:gap-6">
           <div className=" w-full h-full flex gap-6">
             <div className=" w-[50%] h-full flex items-end justify-end">
               <Image  
@@ -40,38 +40,38 @@ export default async function AboutUsSec() {
               alt="hero"
               width={193}
               height={180}
-              className="w-[193px] h-[180px] object-cover rounded-xl"
+              className="w-[108px] h-[101px] md:w-[193px] md:h-[180px] object-cover rounded-xl"
               />
 
             </div>
-            <div className=" w-[50%] h-full">
+            <div className=" w-[50%] h-full flex items-end ">
                  <Image  
               src={about.image[1].image}
               alt="hero"
               width={193}
               height={264}
-              className="w-[193px] h-full object-cover rounded-xl"
+              className="w-[108px] h-[148px] md:w-[193px] md:h-full object-cover rounded-xl"
               />
             </div>
 
           </div>
-          <div  className=" w-full h-full flex gap-6">
-            <div className=" w-[33%] h-full flex items-start ">
+          <div  className=" w-full h-full flex gap-2 md:gap-6">
+            <div className=" w-[33%] h-full flex  items-start justify-end md:justify-start">
               <Image  
               src={about.image[2].image}
               alt="hero"
               width={193}
               height={180}
-              className="w-[193px] h-[180px] object-cover rounded-xl"
+              className="w-[108px] h-[101px] md:w-[193px] md:h-[180px] object-cover rounded-xl"
               />
             </div>
-            <div className=" w-[33%] h-full flex items-end justify-end">
+            <div className=" w-[33%] h-full flex justify-center items-start md:items-end md:justify-end">
               <Image  
               src={about.image[3].image}
               alt="hero"
               width={193}
               height={180}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-[108px] h-[148px] md:w-full md:h-full object-cover rounded-xl"
               />
 
             </div>
@@ -81,7 +81,7 @@ export default async function AboutUsSec() {
               alt="hero"
               width={193}
               height={180}
-              className="w-[193px] h-[180px] object-cover rounded-xl"
+              className="w-[108px] h-[101px] md:w-[193px] md:h-[180px] object-cover rounded-xl"
               />
             </div>
           </div>
