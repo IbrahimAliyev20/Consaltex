@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { InfoCard } from '@/components/shared/Info-Card';
+import InfoCard from '@/components/shared/Info-Card';
 import { Calendar, Clock } from 'lucide-react';
 import { getInformationBySlug, getInformations } from '@/lib/information';
 import { Link } from '@/i18n/navigation';

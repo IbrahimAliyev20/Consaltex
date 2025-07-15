@@ -1,11 +1,11 @@
 
 "use client"; 
 
-import React, { useState, useMemo, use } from 'react'; 
-import { InfoCard } from '@/components/shared/Info-Card';
+import React, { useState, useMemo } from 'react'; 
 import { InformationTag } from '@/types/alltype';
 import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
+import InfoCard from '../shared/Info-Card';
 
 interface InformationPageProps {
   tags: InformationTag[];
