@@ -13,7 +13,7 @@ interface InfoCardProps {
   slug: string;
 }
 
-export default async function InfoCard({imageSrc,readingTime,date,title,description,slug,}: InfoCardProps) {
+export  async function InfoCard({imageSrc,readingTime,date,title,description,slug,}: InfoCardProps) {
   const t = await getTranslations("Information");
 
   return (

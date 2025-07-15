@@ -5,7 +5,7 @@ import React, { useState, useMemo } from 'react';
 import { InformationTag } from '@/types/alltype';
 import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
-import InfoCard from '../shared/Info-Card';
+import { InfoCard } from '../shared/Info-Card';
 
 interface InformationPageProps {
   tags: InformationTag[];
