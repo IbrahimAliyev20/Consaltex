@@ -1,8 +1,10 @@
-import React from "react";
+
+"use client";
+import React  from "react";
 import { Clock, CalendarDays, ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 interface InfoCardProps {
   imageSrc: string;
@@ -13,8 +15,8 @@ interface InfoCardProps {
   slug: string;
 }
 
-export  async function InfoCard({imageSrc,readingTime,date,title,description,slug,}: InfoCardProps) {
-  const t = await getTranslations("Information");
+export function InfoCard({imageSrc,readingTime,date,title,description,slug,}: InfoCardProps) {
+  const t = useTranslations("Information");
 
   return (
     <Link
