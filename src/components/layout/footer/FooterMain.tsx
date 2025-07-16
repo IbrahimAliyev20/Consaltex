@@ -102,21 +102,7 @@ export function FooterMain({ contact, socialLinks }: ContactTypeProps) {
       <div className="border-t border-border py-8">
         <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-2">
           <div className="flex items-center justify-center space-x-2 text-xs">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-copyright"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M14.5 9a3.5 3.5 0 1 0 0 6h1" />
-            </svg>
+            
             <p className="text-white">{t("copyright", { year: currentYear })}</p>
           </div>
 
