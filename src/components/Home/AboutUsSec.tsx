@@ -21,10 +21,8 @@ export default async function AboutUsSec() {
             </h2>
       
           </div>
-          <div className="text-[14px] md:text-base  space-y-4 text-gray-600 leading-relaxed">
-            <p>
-              {about.description}
-            </p>
+          <div  dangerouslySetInnerHTML={{ __html: about.description}}>
+            
           </div>
           <Button className=" w-[161px] h-[44px] bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md flex items-center gap-2 transition-colors">
             {t("Information.see_more")}
