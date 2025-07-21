@@ -7,8 +7,13 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
+import { ContactType, SocialMediaType } from "@/types/alltype";
 
-export function Navbar() {
+type ContactTypeProps = {
+  contact: ContactType;
+  socialLinks: SocialMediaType[];
+};
+export function Navbar({ contact, socialLinks }: ContactTypeProps) {
   const t = useTranslations("Navbar");
   const locale = useLocale();
   const pathname = usePathname();
@@ -65,6 +70,8 @@ export function Navbar() {
           isDropdownOpen={isDropdownOpen}
           setIsDropdownOpen={setIsDropdownOpen}
           handleLanguageChange={handleLanguageChange}
+          contact={contact}
+          socialLinks={socialLinks}
         />
 
         <MobileNav

@@ -1,15 +1,13 @@
-"use client";
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { Menu, ArrowUpRight } from "lucide-react";
+import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
-} from "@/components/ui/sheetui"; 
+} from "@/components/ui/sheetui";
 
 interface NavLink {
   href: string;
@@ -40,13 +38,6 @@ export const MobileNav: React.FC<MobileNavProps> = ({
 }) => {
   return (
     <div className="flex items-center gap-2 md:hidden">
-      <Link href="/contact">
-        <Button className="bg-[#1F45EC] hover:bg-[#4C6AF0] text-white flex items-center space-x-2 px-4 py-2.5 rounded-lg cursor-pointer">
-          <span>{t("contactButton")}</span>
-          <ArrowUpRight className="h-5 w-5" />
-        </Button>
-      </Link>
-
       <Sheet>
         <SheetTrigger asChild>
           <Button

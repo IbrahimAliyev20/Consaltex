@@ -26,7 +26,6 @@ export function FooterMain({ contact, socialLinks }: ContactTypeProps) {
 
   return (
     <footer className="bg-black border-t border-border">
-      {/* Footer-in yuxarı hissəsi (dəyişdirilməyib) */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-16">
           <div className="flex flex-col items-start space-y-6">
