@@ -66,7 +66,7 @@ export default async function HomePage() {
             href="/products" 
             className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 flex items-center text-lg"
           >
-            {t("SecTitle.SeeAllProducts")}
+            {t("SecTitle.SeeAllServices")}
             <ArrowRightIcon className="ml-2 h-5 w-5" />
           </Link>
         </div>
