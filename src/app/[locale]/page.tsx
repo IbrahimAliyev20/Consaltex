@@ -2,24 +2,25 @@ import AboutUsSec from "@/components/Home/AboutUsSec";
 import { HeroSection } from "@/components/Home/HeroSec";
 import { VisionSection } from "@/components/Home/VisionSec";
 import React from "react";
-import ServiceSec from "@/components/Home/ServiceSec";
+import ServiceSec from "@/components/Home/ProductsSec";
+import { InfoCard } from "@/components/shared/Info-Card";
 import { ArrowRightIcon } from "lucide-react";
 import ContactPage from "@/components/Contact/ContactSingle";
 import { getHeroSlider } from "@/lib/heroslider";
 import { getContact } from "@/lib/contact";
-import { getOurServices } from "@/lib/our-services";
+import { getInformations } from "@/lib/information";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 export default async function HomePage() {
-  const [heroslider, contact, servicesResponse] = await Promise.all([
+  const [heroslider, contact,  informationTags] = await Promise.all([
     getHeroSlider(),
     getContact(),
-    getOurServices()
+    getInformations()
   ]);
   const t = await getTranslations();
 
-  const allServices = servicesResponse.data;
+  const allInformationPosts = informationTags.flatMap(tag => tag.informations);
 
   return (
     <div>
@@ -35,6 +36,10 @@ export default async function HomePage() {
         <VisionSection />
       </div>
 
+
+
+      
+    {/* ////Service//// */}
       <div className="container mx-auto px-4 py-6 md:py-14">
         <div className="flex justify-between items-center mb-10">
           <h2 className="relative text-[22px] md:text-4xl font-bold text-gray-900 pb-4">
@@ -51,7 +56,6 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <ServiceSec services={allServices} limit={3} />
 
         <div className="flex justify-end mt-8 md:hidden">
           <Link
@@ -59,6 +63,53 @@ export default async function HomePage() {
             className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 flex items-center text-lg"
           >
             {t('SecTitle.SeeAllServices')}
+            <ArrowRightIcon className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
+      </div>
+
+
+
+
+      {/* //////BLOG//// */}
+
+
+     <div className="container mx-auto px-4 py-6 md:py-14">
+        <div className="flex justify-between items-center mb-10">
+          <h2 className="relative text-[22px] md:text-4xl font-bold text-gray-900 pb-4">
+            {t('SecTitle.OurBlogs')}
+            <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-500 to-white"></span>
+          </h2>
+
+          <Link
+            href="/information"
+            className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 hidden md:flex items-center"
+          >
+            {t('SecTitle.SeeAllBlogs')}
+            <ArrowRightIcon className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {allInformationPosts.slice(0, 4).map(post => (
+            <InfoCard
+              key={post.slug}
+              slug={post.slug}
+              imageSrc={post.image}
+              readingTime={post.reading_time}
+              date={post.created_at}
+              title={post.title}
+              description={post.description}
+            />
+          ))}
+        </div>
+
+        <div className="flex justify-end mt-8 md:hidden">
+          <Link
+            href="/information"
+            className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 flex items-center text-lg"
+          >
+            {t('SecTitle.SeeAllBlogs')}
             <ArrowRightIcon className="ml-2 h-5 w-5" />
           </Link>
         </div>

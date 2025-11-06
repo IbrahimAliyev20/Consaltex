@@ -146,3 +146,49 @@ export interface MetaTagsType {
   meta_description: string;
   meta_keywords: string;
 }
+
+export interface Products {
+  name: string
+  description: string
+  image: string
+  thumb_image: string
+  attributes: {
+    title: string
+    thumb_image: string
+  }[],
+  detail_images:{
+    image:string
+    thumb_image:string
+  }[],
+}
+export interface PaginatedProductsResponse {
+  data: Products[];
+  links: {
+    first: string;
+    last: string;
+    prev: string | null;
+    next: string | null;
+  };
+  meta: {
+    current_page: number;
+    from: number;
+    last_page: number;
+    links: {
+      url: string | null;
+      label: string;
+      active: boolean;
+    }[];
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+  };
+}
+
+export interface SingleProductResponse {
+  timestamp: string;
+  status: boolean;
+  message: string;
+  lang: string;
+  data: Products;
+}

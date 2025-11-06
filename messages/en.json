@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About Us",
     "services": "Services",
-    "information": "Information",
+    "information": "Blog",
     "contact": "Contact",
     "contactButton": "Contact Us"
   },
@@ -11,7 +11,7 @@
     "home": "Home",
     "about": "About Us",
     "services": "Services",
-    "information": "Information",
+    "information": "Blog",
     "contact": "Contact",
     "copyright": "© {year}  All rights reserved.",
     "followUsOn": "Follow us on",
@@ -20,9 +20,11 @@
   },
   "SecTitle": {
     "OurServices": "Our Services",
+    "OurBlogs": "Our Blogs",
     "AboutUs": "About Us",
     "ContactUs": "Contact Us",
-    "SeeAllServices": "See All Services"
+    "SeeAllServices": "See All Services",
+    "SeeAllBlogs": "See All Blogs"
 },
  "Information": {
     "reading_time": "Reading Time",

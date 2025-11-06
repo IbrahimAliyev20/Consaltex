@@ -2,16 +2,16 @@
   "Navbar": {
     "home": "Ana səhifə",
     "about": "Haqqımızda",
-    "services": "Xidmətlər",
-    "information": "Məlumat",
+    "services": "Məhsullar",
+    "information": "Bloq",
     "contact": "Əlaqə",
     "contactButton": "Əlaqə saxla"
   },
   "Footer": {
     "home": "Ana səhifə",
     "about": "Haqqımızda",
-    "services": "Xidmətlər",
-    "information": "Məlumat",
+    "services": "Məhsullar",
+    "information": "Bloq",
     "contact": "Əlaqə",
     "copyright": "© {year}  Bütün hüquqlar qorunur.",
     "followUsOn": "Bizi izləyin",
@@ -19,10 +19,12 @@
     "madeBy": "Veb sayt <markupLink>Markup Agency</markupLink> tərəfindən hazırlanıb"
   },
   "SecTitle": {
-    "OurServices": "Xidmətlər",
+    "OurServices": "Məhsullar",
+    "OurBlogs": "Bloqlarımız",
     "AboutUs": "Haqqımızda",
     "ContactUs": "Bizimlə əlaqə",
-    "SeeAllServices": "Bütün xidmətlər"
+    "SeeAllServices": "Bütün məhsullar",
+    "SeeAllBlogs": "Bütün bloqlar"
   },
   "Information": {
     "reading_time": "Oxuma müddəti",

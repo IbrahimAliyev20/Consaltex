@@ -3,7 +3,7 @@
     "home": "Главная",
     "about": "О нас",
     "services": "Услуги",
-    "information": "Информация",
+    "information": "Блог",
     "contact": "Контакты",
     "contactButton": "Связаться"
   },
@@ -11,7 +11,7 @@
     "home": "Главная",
     "about": "О нас",
     "services": "Услуги",
-    "information": "Информация",
+    "information": "Блог",
     "contact": "Контакты",
     "copyright": "© {year}  Все права защищены.",
     "followUsOn": "Подписывайтесь на нас",
@@ -20,9 +20,11 @@
   },
   "SecTitle": {
     "OurServices": "Наши услуги",
+    "OurBlogs": "Наши блоги",
     "AboutUs": "О нас",
     "ContactUs": "Связаться с нами",
-    "SeeAllServices": "Смотреть все услуги"
+    "SeeAllServices": "Смотреть все услуги",
+    "SeeAllBlogs": "Смотреть все блоги"
 },
  "Information": {
     "reading_time": "Время чтения",
