@@ -1,10 +1,8 @@
 import React from "react";
-import { getTranslations } from "next-intl/server";
 import { getProducts } from "@/lib/products";
 import ProductGrid from "./ProductGrid";
 
 export default async function ProductsPage() {
-  const t = await getTranslations();
 
   const initialProductsData = await getProducts(1);
 
