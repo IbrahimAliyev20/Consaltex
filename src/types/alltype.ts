@@ -154,7 +154,7 @@ export interface Products {
   thumb_image: string
   attributes: {
     title: string
-    thumb_image: string
+    description: string 
   }[],
   detail_images:{
     image:string
@@ -191,4 +191,8 @@ export interface SingleProductResponse {
   message: string;
   lang: string;
   data: Products;
+}
+
+export interface LatestProductsResponse {
+  data: Products[];
 }

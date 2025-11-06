@@ -40,7 +40,7 @@ export function Navbar({ contact, socialLinks }: ContactTypeProps) {
   const navLinks = [
     { href: "/", translationKey: "home" },
     { href: "/about", translationKey: "about" },
-    { href: "/services", translationKey: "services" },
+    { href: "/products", translationKey: "services" },
     { href: "/information", translationKey: "information" },
     { href: "/contact", translationKey: "contact" },
   ];

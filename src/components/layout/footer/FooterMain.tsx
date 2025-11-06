@@ -9,7 +9,7 @@ import { ContactType, SocialMediaType } from "@/types/alltype";
 const navLinkData = [
   { href: "/", key: "home" },
   { href: "/about", key: "about" },
-  { href: "/services", key: "services" },
+  { href: "/products", key: "services" },
   { href: "/information", key: "information" },
   { href: "/contact", key: "contact" },
 ];
