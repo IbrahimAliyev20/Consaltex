@@ -8,7 +8,7 @@ export default async function ProductsPage() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="mb-12 text-[36px] font-medium text-gray-900 md:text-5xl">
+      <h1 className="mb-12 text-[36px] font-medium text-gray-900 ">
         Innovative Digital Health Solutions
       </h1>
 

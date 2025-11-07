@@ -149,6 +149,7 @@ export interface MetaTagsType {
 
 export interface Products {
   name: string
+  slug: string
   description: string
   image: string
   thumb_image: string
