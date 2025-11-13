@@ -4,7 +4,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import Image from "next/image";
-import { ContactType, SocialMediaType } from "@/types/alltype";
+import { ContactType, Settings, SocialMediaType } from "@/types/alltype";
 
 const navLinkData = [
   { href: "/", key: "home" },
@@ -17,9 +17,10 @@ const navLinkData = [
 type ContactTypeProps = {
   contact: ContactType;
   socialLinks: SocialMediaType[];
+  settings: Settings;
 };
 
-export function FooterMain({ contact, socialLinks }: ContactTypeProps) {
+export function FooterMain({ contact, socialLinks, settings }: ContactTypeProps) {
   const t = useTranslations("Footer");
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
@@ -31,7 +32,7 @@ export function FooterMain({ contact, socialLinks }: ContactTypeProps) {
           <div className="flex flex-col items-start space-y-6">
             <div className="text-3xl font-bold text-foreground">
               <Image
-                src="/images/logo.svg"
+                src={settings.logo || '/images/logo.svg'}
                 alt="Consaltex Logo"
                 width={175}
                 height={88}
@@ -112,7 +113,7 @@ export function FooterMain({ contact, socialLinks }: ContactTypeProps) {
                   href="https://markup.az/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pb-1 font-semibold bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 bg-no-repeat [background-size:100%_2px] bg-bottom hover:text-gray-300 transition-colors"
+                  className="pb-1 font-semibold  from-orange-500 via-red-500 to-purple-600 bg-no-repeat  bg-bottom hover:text-gray-300 transition-colors"
                 >
                   {chunks}
                 </Link>

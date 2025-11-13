@@ -110,7 +110,7 @@ export default function ProductDetailClient({
               {product.attributes.map((attr, index) => (
                 <div key={index} className="flex items-start">
                   <CheckCircle2
-                    className="mr-3 h-6 w-6 flex-shrink-0"
+                    className="mr-3 h-6 w-6 "
                     color="#2563EB"
                   />
                   <div>

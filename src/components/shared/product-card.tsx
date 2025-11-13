@@ -13,13 +13,13 @@ function ProductCard({ product }: ProductCardProps) {
       href={`/products/${product.slug}`}
       className="max-w-sm overflow-hidden group transition-transform hover:-translate-y-1"
     >
-      <div className="relative flex h-64 w-full items-center justify-center overflow-hidden border border-[#DBDEE5] rounded-[16px]">
+      <div className="relative flex h-64 w-full items-center justify-center overflow-hidden border border-[#DBDEE5]">
         <Image
           src={product.image}
           alt={product.name}
           width={100}
           height={100}
-          className="object-cover w-full h-full"
+          className="object-contain w-full h-full"
         />
       </div>
 

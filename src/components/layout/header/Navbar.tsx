@@ -7,13 +7,14 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
-import { ContactType, SocialMediaType } from "@/types/alltype";
+import { ContactType, Settings, SocialMediaType } from "@/types/alltype";
 
 type ContactTypeProps = {
   contact: ContactType;
   socialLinks: SocialMediaType[];
+  settings: Settings;
 };
-export function Navbar({ contact, socialLinks }: ContactTypeProps) {
+export function Navbar({ contact, socialLinks, settings }: ContactTypeProps) {
   const t = useTranslations("Navbar");
   const locale = useLocale();
   const pathname = usePathname();
@@ -51,7 +52,7 @@ export function Navbar({ contact, socialLinks }: ContactTypeProps) {
         <div className="flex items-center">
           <Link href="/">
             <Image
-              src="/images/logo.svg"
+              src={settings.logo || '/images/logo.svg'}
               alt="ConsultTex Logo"
               width={150}
               height={24}

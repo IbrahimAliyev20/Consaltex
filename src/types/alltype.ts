@@ -197,3 +197,8 @@ export interface SingleProductResponse {
 export interface LatestProductsResponse {
   data: Products[];
 }
+
+export interface Settings {
+logo: string;
+favicon: string;
+}

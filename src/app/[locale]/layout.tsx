@@ -10,9 +10,12 @@ import { MetaTagsType } from "@/types/alltype";
 import { getMetaTags } from "@/lib/mera-tags";
 import { getContact } from "@/lib/contact";
 import { getSocialMeida } from "@/lib/social-media";
+import { getSettings } from "@/lib/settings";
 
 export async function generateMetadata() {
   const metaData: MetaTagsType[] = await getMetaTags();
+
+  const settings = await getSettings();
 
   const defaultMeta = metaData.find(
     (meta) => meta.title.toLowerCase() === "home"
@@ -26,6 +29,11 @@ export async function generateMetadata() {
     title: defaultMeta.meta_title,
     description: defaultMeta.meta_description,
     keywords: defaultMeta.meta_keywords,
+
+    icons: {
+      icon: settings?.favicon || "/favicon.ico",
+    },
+
     openGraph: {
       title: defaultMeta.meta_title,
       description: defaultMeta.meta_description,
@@ -47,15 +55,23 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-    const contact = await getContact()
-    const socialLinks = await getSocialMeida()
+
+  const contact = await getContact();
+  const socialLinks = await getSocialMeida();
+  const settings = await getSettings();
+
   return (
     <html lang={locale}>
       <body>
         <TopLoader />
         <NextIntlClientProvider messages={messages}>
-          <Navbar contact={contact} socialLinks={socialLinks} />
+          <Navbar
+            contact={contact}
+            socialLinks={socialLinks}
+            settings={settings}
+          />
           <main className="min-h-screen py-16 ">{children}</main>
+
           <Footer />
         </NextIntlClientProvider>
       </body>

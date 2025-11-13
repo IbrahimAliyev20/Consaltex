@@ -1,11 +1,12 @@
-import { SocialMediaType } from '@/types/alltype';
+import { Settings } from '@/types/alltype';
 import {cookies} from 'next/headers'
 
 
-export async function getSocialMeida(): Promise<SocialMediaType[]> {
+export async function getSettings(): Promise<Settings> {
   const cookieStore = await cookies();
   const localeFromCookie = cookieStore.get('NEXT_LOCALE')?.value || 'az'; 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/social-media`, {
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/settings`, {
     headers: {
       "Accept-Language": localeFromCookie, 
     },
@@ -13,5 +14,5 @@ export async function getSocialMeida(): Promise<SocialMediaType[]> {
   });
 
   const json = await res.json();
-  return json.data; 
+  return json; 
 }

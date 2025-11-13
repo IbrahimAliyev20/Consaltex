@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="flex justify-between items-center mb-10">
           <h2 className="relative text-[22px] md:text-4xl font-bold text-gray-900 pb-4">
             {t('SecTitle.OurServices')}
-            <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-500 to-white"></span>
+            <span className="absolute left-0 bottom-0 w-full h-1  from-blue-500 to-white"></span>
           </h2>
 
           <Link

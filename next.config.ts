@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'consaltex.markup.az',
+        hostname: 'admin.pharmelita.com',
       },
     ],
   },

@@ -21,6 +21,7 @@ export default function ProductGrid({
   const [products, setProducts] = useState<Products[]>(
     initialProductsData.data
   );
+  console.log(products)
   const [currentPage, setCurrentPage] = useState<number>(
     initialProductsData.meta.current_page
   );
