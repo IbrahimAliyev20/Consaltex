@@ -35,7 +35,7 @@ export default async function InfoSinglePage({ params }: InfoSinglePageProps) {
         <article>
           <header className="mb-8 flex flex-col gap-8">
             <nav className="text-sm text-gray-500">
-              <Link href="/information" className="hover:text-blue-600">{t('Navbar.blog')}</Link>
+              <Link href="/information" className="hover:text-blue-600">{t('Navbar.information')}</Link>
               <span className="mx-2">/</span>
               <span>{post.title}</span>
             </nav>
