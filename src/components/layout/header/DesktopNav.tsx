@@ -57,7 +57,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
             className={`transition-colors font-medium text-base ${
               pathname === link.href
                 ? "text-blue-500"
-                : "text-white hover:text-blue-400"
+                : "text-gray-500 hover:text-blue-400"
             }`}
           >
             {t(link.translationKey)}
@@ -70,7 +70,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="flex items-center p-2 text-white hover:bg-transparent hover:text-white focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="flex items-center p-2 text-gray-500 hover:bg-transparent hover:text-black focus-visible:ring-0 focus-visible:ring-offset-0"
             >
               <span className="font-medium">
                 {languages.find((lang) => lang.code === locale)?.label}
@@ -103,7 +103,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
               key={link.name}
               href={link.link}
               aria-label={link.name}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-black hover:text-gray-600 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -114,7 +114,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
 
         <div className="h-6 w-px bg-slate-600" />
 
-        <div className="flex flex-col text-xs text-white">
+        <div className="flex flex-col text-xs text-black">
           {contact && (
             <>
               <Link

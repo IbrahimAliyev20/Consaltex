@@ -43,7 +43,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           <Button
             variant="ghost"
             size="icon"
-            className="text-white hover:bg-gray-800 rounded-md"
+            className="text-black hover:bg-gray-200 rounded-md"
           >
             <Menu className="h-6 w-6" />
             <span className="sr-only">Menyunu aç</span>
@@ -52,7 +52,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
 
         <SheetContent
           side="left"
-          className="w-[70%] bg-[#0E0D0D] text-white p-0 border-r border-gray-700 mt-[71px] h-[calc(fit-content-71px)]"
+          className="w-[70%] bg-white text-gray-500 p-0 border-r border-gray-300 mt-[71px] h-[calc(fit-content-71px)]"
         >
           <div className="flex flex-col h-full">
             <div className="flex-1 p-6 pt-12 overflow-y-auto">
@@ -64,7 +64,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                       className={`text-2xl font-light transition-colors ${
                         pathname === link.href
                           ? "text-blue-500"
-                          : "text-white hover:text-blue-400"
+                          : "text-gray-500 hover:text-blue-400"
                       }`}
                     >
                       {t(link.translationKey)}
@@ -74,7 +74,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
               </div>
             </div>
 
-            <div className="p-6 border-t border-gray-700">
+            <div className="p-6 border-t border-gray-300">
               <div className="flex items-center justify-center space-x-3">
                 {languages.map((lang) => (
                   <SheetClose asChild key={lang.code}>

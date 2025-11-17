@@ -26,7 +26,7 @@ export function FooterMain({ contact, socialLinks, settings }: ContactTypeProps)
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black border-t border-border">
+    <footer className="bg-white border-t border-border">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-16">
           <div className="flex flex-col items-start space-y-6">
@@ -38,14 +38,14 @@ export function FooterMain({ contact, socialLinks, settings }: ContactTypeProps)
                 height={88}
               />
             </div>
-            <p className="text-white text-sm">{t("followUsOn")}</p>
+            <p className="text-black text-sm">{t("followUsOn")}</p>
             <div className="flex items-center space-x-4">
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.link}
                   aria-label={link.name}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-black hover:text-gray-600 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -61,7 +61,7 @@ export function FooterMain({ contact, socialLinks, settings }: ContactTypeProps)
           </div>
           <div></div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">
+            <h3 className="text-lg font-semibold text-black mb-6">
               {t("navigation")}
             </h3>
             <nav>
@@ -73,8 +73,8 @@ export function FooterMain({ contact, socialLinks, settings }: ContactTypeProps)
                       <Link
                         href={link.href}
                         className={`
-                          ${isActive ? "text-white" : "text-muted-foreground"}
-                          hover:text-white transition-colors text-sm
+                          ${isActive ? "text-gray-500" : "text-gray-500"}
+                          hover:text-gray-600 transition-colors text-sm
                         `}
                       >
                         {t(link.key)}
@@ -86,10 +86,10 @@ export function FooterMain({ contact, socialLinks, settings }: ContactTypeProps)
             </nav>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">
+            <h3 className="text-lg font-semibold text-black mb-6">
               {t("contact")}
             </h3>
-            <div className="flex flex-col space-y-4 text-muted-foreground text-sm">
+            <div className="flex flex-col space-y-4 text-gray-500 text-sm">
               <a href="#">{contact.address}</a>
               <a href={`tel:${contact.phone}`}>{contact.phone}</a>
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
@@ -103,17 +103,17 @@ export function FooterMain({ contact, socialLinks, settings }: ContactTypeProps)
         <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-2">
           <div className="flex items-center justify-center space-x-2 text-xs">
             
-            <p className="text-white">{t("copyright", { year: currentYear })}</p>
+            <p className="text-black">{t("copyright", { year: currentYear })}</p>
           </div>
 
-          <div className="text-white text-[10px] uppercase tracking-widest text-center">
+          <div className="text-black text-[10px] uppercase tracking-widest text-center">
             {t.rich("madeBy", {
               markupLink: (chunks) => (
                 <Link
                   href="https://markup.az/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pb-1 font-semibold  from-orange-500 via-red-500 to-purple-600 bg-no-repeat  bg-bottom hover:text-gray-300 transition-colors"
+                  className="pb-1 font-semibold  from-orange-500 via-red-500 to-purple-600 bg-no-repeat  bg-bottom hover:text-gray-600 transition-colors"
                 >
                   {chunks}
                 </Link>
