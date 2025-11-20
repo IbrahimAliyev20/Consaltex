@@ -18,6 +18,15 @@ interface InfoCardProps {
 export function InfoCard({imageSrc,readingTime,date,title,description,slug,}: InfoCardProps) {
   const t = useTranslations("Information");
 
+  // Remove images from description HTML
+  const removeImagesFromHtml = (html: string): string => {
+    if (!html) return "";
+    // Remove img tags and their content
+    return html.replace(/<img[^>]*>/gi, "").replace(/<picture[^>]*>[\s\S]*?<\/picture>/gi, "");
+  };
+
+  const cleanedDescription = removeImagesFromHtml(description || "");
+
   return (
     <Link
       href={`/information/${slug}`}
@@ -37,10 +46,10 @@ export function InfoCard({imageSrc,readingTime,date,title,description,slug,}: In
           <CalendarDays className="w-4 h-4 ml-4 mr-1" />
           <span>{date}</span>
         </div>
-        <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
+        <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">{title}</h3>
         <p
-          className="text-sm text-muted-foreground mb-4 flex-grow line-clamp-3"
-          dangerouslySetInnerHTML={{ __html: description || "" }}
+          className="text-sm text-muted-foreground mb-4   line-clamp-1"
+          dangerouslySetInnerHTML={{ __html: cleanedDescription }}
         />
         <div className="inline-flex items-center text-[#1F45EC] text-sm font-medium">
           {t("see_more")}
